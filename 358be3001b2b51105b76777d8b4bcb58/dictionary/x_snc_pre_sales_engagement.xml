@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="0" type="collection"/>
+    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="2" type="collection">
+        <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string"/>
+        <element label="Internal Team" max_length="2000" name="contacts_internal" type="string_full_utf8"/>
+        <element label="Partner Contacts" max_length="2000" name="contacts_partner" type="string_full_utf8"/>
+        <element choice="1" label="Context" max_length="40" name="context" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Greenfield" sequence="1" value="greenfield"/>
+                <element inactive_on_update="false" label="Improvement of existing product" sequence="2" value="improvement"/>
+                <element inactive_on_update="false" label="Replacement of existing product" sequence="3" value="replacement"/>
+            </choice>
+        </element>
+        <element label="Country" max_length="32" name="country" reference="core_country" type="reference"/>
+        <element choice="1" label="Quality" max_length="40" name="quality" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Research" sequence="1" value="research"/>
+                <element inactive_on_update="false" label="Proof of Concept" sequence="2" value="poc"/>
+                <element inactive_on_update="false" label="Minimum Viable Product" sequence="3" value="mvp"/>
+                <element inactive_on_update="false" label="Robust Product" sequence="4" value="robust"/>
+            </choice>
+        </element>
+        <element label="Reference" max_length="40" name="reference" type="string"/>
+        <element label="Team" max_length="2000" name="team" type="string_full_utf8"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="ServiceNow-led" sequence="1" value="servicenow_led"/>
+                <element inactive_on_update="false" label="Partner-led" sequence="2" value="partner_led"/>
+                <element inactive_on_update="false" label="Customer-led" sequence="3" value="customer_led"/>
+            </choice>
+        </element>
+    </element>
 </database>
