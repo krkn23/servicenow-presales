@@ -31,6 +31,13 @@
                 <element inactive_on_update="false" label="Robust Product" sequence="4" value="robust"/>
             </choice>
         </element>
+        <element choice="1" label="Quality of requirements documentation" max_length="40" name="quality_of_requirements" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Bullet Points" sequence="1" value="low"/>
+                <element inactive_on_update="false" label="Powerpoint" sequence="2" value="medium"/>
+                <element inactive_on_update="false" label="Detailed Document" sequence="3" value="high"/>
+            </choice>
+        </element>
         <element label="Reference" max_length="40" name="reference" type="string"/>
         <element label="Team" max_length="2000" name="team" type="string_full_utf8"/>
         <element choice="1" label="Type" max_length="40" name="type" type="choice">

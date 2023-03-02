@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_pre_sales.Estimate</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Processes the input from the questionnaire and returns a list of tasks with efforts and the confidence score.</description>
+        <name>Estimate</name>
+        <script><![CDATA[function Estimate(input)
+{
+	var GetValue = x_snc_devtools.GetValue;
+	var SetValue = x_snc_devtools.SetValue;
+	var GetFloatValue = x_snc_devtools.GetFloatValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+
+	var rules = GetEstimationRules();
+
+	var estimate = {};
+
+	estimate.rules = rules;
+	
+	var aKeys = GetKeys(rules);
+	for (var nKey = 0; nKey < aKeys.length; nKey++)
+	{
+		var strKey = aKeys[nKey];
+		var strInput = GetStringValue(GetValue(input,strKey));
+		estimate = SetValue(strInput,estimate,'input',strKey);
+		if (strInput == '')
+		{
+			strInput = 'default';
+		}
+		var rule = GetValue(rules,strKey);
+		var values = GetValue(rule,strInput);
+		var value = GetValue(values,'confidence');
+		if (value != null)
+		{
+			estimate = SetValue(value,estimate,'confidence',strKey);
+			
+		}
+		var value = GetValue(values,'effort');
+		if (value != null)
+		{
+			estimate = SetValue(value,estimate,'effort',strKey);
+		}	
+	}
+	
+	
+	// Quality
+	var strQuality = GetStringValue(GetValue(input,'quality'));
+	estimate = SetValue(strQuality,estimate,'input','quality');
+	switch (strQuality)
+	{
+	case 'research':
+		estimate = SetValue(10,estimate,'tasks','research');
+		estimate = SetValue(1.0,estimate,'confidence','quality');			
+		break;
+	case 'poc':
+		estimate = SetValue(1.0,estimate,'effort','quality');
+		estimate = SetValue(1.0,estimate,'confidence','quality');			
+		break;
+	case 'mvp':
+		estimate = SetValue(1.5,estimate,'effort','quality');
+		estimate = SetValue(1.0,estimate,'confidence','quality');
+		break;
+	case 'robust':
+		estimate = SetValue(3.0,estimate,'effort','quality');
+		estimate = SetValue(0.8,estimate,'confidence','quality');
+		break;
+	default:
+		estimate = SetValue(0.0,estimate,'confidence','quality');
+		break;	
+	}		
+	
+	// Quality of requirements
+	var strQualityOfRequirements = GetStringValue(GetValue(input,'quality_of_requirements'));
+	estimate = SetValue(strQualityOfRequirements,estimate,'input','quality_of_requirements');
+	switch (strQualityOfRequirements)
+	{
+	case 'low':
+		estimate = SetValue(15,estimate,'tasks','analysis');
+		estimate = SetValue(0.25,estimate,'confidence','quality_of_requirements');			
+		break;
+	case 'medium':
+		estimate = SetValue(10,estimate,'tasks','analysis');
+		estimate = SetValue(0.5,estimate,'confidence','quality_of_requirements');			
+		break;
+	case 'high':
+		estimate = SetValue(5,estimate,'tasks','analysis');
+		estimate = SetValue(1.0,estimate,'confidence','quality_of_requirements');
+		break;
+	default:
+		//estimate = SetValue(20,estimate,'tasks','analysis');
+		estimate = SetValue(0.0,estimate,'confidence','quality_of_requirements');
+		break;	
+	}		
+
+	// Calculate confidence score
+	var fConfidence = 0; 
+	var confidence = GetValue(estimate,'confidence');
+	var aConfidenceKeys = GetKeys(confidence);
+	for (var nKey = 0; nKey < aConfidenceKeys.length; nKey++)
+	{
+		fConfidence += GetFloatValue(GetValue(confidence,aConfidenceKeys[nKey]));
+	}
+	if (nKey > 0)
+	{
+		fConfidence = fConfidence / nKey; 
+	}
+	SetValue(fConfidence,estimate,'scores','confidence');
+
+	// Calculate effort factor
+	var fEffort = 1; 
+	var effort = GetValue(estimate,'effort');
+	var aEffortKeys = GetKeys(effort);
+	for (var nKey = 0; nKey < aEffortKeys.length; nKey++)
+	{
+		fEffort *= GetFloatValue(GetValue(effort,aEffortKeys[nKey]));
+	}
+	SetValue(fEffort,estimate,'scores','effort');
+	
+	return estimate;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-02 19:58:35</sys_created_on>
+        <sys_id>6f8d30dadbdde1106a03dad1f3961956</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Estimate</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_update_name>sys_script_include_6f8d30dadbdde1106a03dad1f3961956</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-02 21:49:55</sys_updated_on>
+    </sys_script_include>
+</record_update>

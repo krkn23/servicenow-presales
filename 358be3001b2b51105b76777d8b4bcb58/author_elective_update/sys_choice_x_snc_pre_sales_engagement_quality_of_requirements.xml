@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="quality_of_requirements" table="x_snc_pre_sales_engagement" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>quality_of_requirements</element>
+            <name>x_snc_pre_sales_engagement</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-02 21:15:38</sys_created_on>
+            <sys_id>41a3d956db5125106a03dad1f3961913</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>quality_of_requirements</sys_name>
+            <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+            <sys_update_name>sys_choice_x_snc_pre_sales_engagement_quality_of_requirements</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-02 21:15:38</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality_of_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Bullet Points</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-02 21:15:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>db735956db5125106a03dad1f39619ce</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-02 21:18:14</sys_updated_on>
+            <value>low</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality_of_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Powerpoint</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-02 21:16:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6aa35956db5125106a03dad1f396198d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-02 21:16:08</sys_updated_on>
+            <value>medium</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality_of_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Detailed Document</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-02 21:16:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cfc39d56db5125106a03dad1f3961924</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-02 21:16:56</sys_updated_on>
+            <value>high</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>
