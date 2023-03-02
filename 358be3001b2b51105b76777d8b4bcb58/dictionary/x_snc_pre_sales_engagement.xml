@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="2" type="collection">
-        <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string"/>
+        <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string_full_utf8"/>
         <element label="Internal Team" max_length="2000" name="contacts_internal" type="string_full_utf8"/>
         <element label="Partner Contacts" max_length="2000" name="contacts_partner" type="string_full_utf8"/>
         <element choice="1" label="Context" max_length="40" name="context" type="choice">
@@ -11,6 +11,18 @@
             </choice>
         </element>
         <element label="Country" max_length="32" name="country" reference="core_country" type="reference"/>
+        <element choice="1" label="Inbound Integrations" max_length="40" name="integrations_inbound" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes" sequence="2" value="yes"/>
+            </choice>
+        </element>
+        <element choice="1" label="Outbound Integrations" max_length="40" name="integrations_outbound" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes" sequence="2" value="yes"/>
+            </choice>
+        </element>
         <element choice="1" label="Quality" max_length="40" name="quality" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Research" sequence="1" value="research"/>
