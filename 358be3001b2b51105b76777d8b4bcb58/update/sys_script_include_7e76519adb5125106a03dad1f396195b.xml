@@ -10,40 +10,80 @@
         <script><![CDATA[function GetEstimationRules()
 {
 	var rules = {
-		'type':
+		'tasks':
 		{
-			'servicenow_led':
+			'research':
 			{
-				'confidence': 1,
-				'effort': 1.25
+				role: 'tc',
+				label: 'Research'
 			},
-			'partner_led':
+			'implementation':
 			{
-				'confidence': 0.75
-			},
-			'customer_led':
-			{
-				'confidence': 0.5
+				role: 'tc',
+				label: 'Implement'
 			}
 		},
-		'context':
+		'inputs':
 		{
-			'greenfield':
+
+			'type':
 			{
-				'confidence': 1.0
+				'servicenow_led':
+				{
+					'confidence': 1,
+					'effort': 1.25
+				},
+				'partner_led':
+				{
+					'confidence': 0.75
+				},
+				'customer_led':
+				{
+					'confidence': 0.5
+				}
 			},
-			'improvement':
+			'context':
 			{
-				'confidence': 0.75
+				'greenfield':
+				{
+					'confidence': 1.0
+				},
+				'improvement':
+				{
+					'confidence': 0.75
+				},
+				'replacement':
+				{
+					'confidence': 0.5,
+					'effort': 1.5
+				},
+				'default':
+				{
+					'confidence': 0
+				}
 			},
-			'replacement':
+			'deployment_method':
 			{
-				'confidence': 0.5,
-				'effort': 1.5
-			},
-			'default':
-			{
-				'confidence': 0
+				'update_sets':
+				{
+					'confidence': 0.5,
+					'effort': 1.2 
+				},
+				'source_control':
+				{
+					'confidence': 1,
+					'effort': 0.8
+				},
+				'hybrid':
+				{
+					'confidence': 5,
+					'effort': 2
+				},
+				'default':
+				{
+					'confidence': 0,
+					'effort': 1.5
+				}
 			}
 		}
 	};
@@ -54,13 +94,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-02 21:50:40</sys_updated_on>
+        <sys_updated_on>2023-03-03 08:11:34</sys_updated_on>
     </sys_script_include>
 </record_update>

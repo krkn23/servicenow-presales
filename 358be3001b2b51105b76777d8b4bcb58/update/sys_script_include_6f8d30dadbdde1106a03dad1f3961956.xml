@@ -18,10 +18,11 @@
 	var rules = GetEstimationRules();
 
 	var estimate = {};
+	var aTasks = [];
 
 	estimate.rules = rules;
 	
-	var aKeys = GetKeys(rules);
+	var aKeys = GetKeys(GetValue(rules,'inputs'));
 	for (var nKey = 0; nKey < aKeys.length; nKey++)
 	{
 		var strKey = aKeys[nKey];
@@ -31,10 +32,10 @@
 		{
 			strInput = 'default';
 		}
-		var rule = GetValue(rules,strKey);
+		var rule = GetValue(rules,'inputs',strKey);
 		var values = GetValue(rule,strInput);
 		var value = GetValue(values,'confidence');
-		if (value != null)
+		if (value !== null)
 		{
 			estimate = SetValue(value,estimate,'confidence',strKey);
 			
@@ -53,7 +54,13 @@
 	switch (strQuality)
 	{
 	case 'research':
-		estimate = SetValue(10,estimate,'tasks','research');
+		//estimate = SetValue(10,estimate,'tasks','research');
+		aTasks.push(
+			{
+				type: 'research',
+				effort: 10,
+				short_description: 'Do Research'
+			});
 		estimate = SetValue(1.0,estimate,'confidence','quality');			
 		break;
 	case 'poc':
@@ -79,19 +86,34 @@
 	switch (strQualityOfRequirements)
 	{
 	case 'low':
-		estimate = SetValue(15,estimate,'tasks','analysis');
+		aTasks.push(
+			{
+				type: 'research',
+				effort: 15,
+				short_description: 'Requirement Analysis / Workshops'
+			});
+			
 		estimate = SetValue(0.25,estimate,'confidence','quality_of_requirements');			
 		break;
 	case 'medium':
-		estimate = SetValue(10,estimate,'tasks','analysis');
+		aTasks.push(
+			{
+				type: 'research',
+				effort: 10,
+				short_description: 'Requirement Analysis / Workshops'
+			});
 		estimate = SetValue(0.5,estimate,'confidence','quality_of_requirements');			
 		break;
 	case 'high':
-		estimate = SetValue(5,estimate,'tasks','analysis');
+		aTasks.push(
+			{
+				type: 'research',
+				effort: 5,
+				short_description: 'Requirement Analysis / Workshops'
+			});
 		estimate = SetValue(1.0,estimate,'confidence','quality_of_requirements');
 		break;
 	default:
-		//estimate = SetValue(20,estimate,'tasks','analysis');
 		estimate = SetValue(0.0,estimate,'confidence','quality_of_requirements');
 		break;	
 	}		
@@ -108,7 +130,7 @@
 	{
 		fConfidence = fConfidence / nKey; 
 	}
-	SetValue(fConfidence,estimate,'scores','confidence');
+	SetValue(fConfidence,estimate,'factors','confidence');
 
 	// Calculate effort factor
 	var fEffort = 1; 
@@ -118,7 +140,9 @@
 	{
 		fEffort *= GetFloatValue(GetValue(effort,aEffortKeys[nKey]));
 	}
-	SetValue(fEffort,estimate,'scores','effort');
+	SetValue(fEffort,estimate,'factors','effort');
+	
+	estimate.tasks = aTasks;
 	
 	return estimate;
 }]]></script>
@@ -126,13 +150,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 19:58:35</sys_created_on>
         <sys_id>6f8d30dadbdde1106a03dad1f3961956</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>Estimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_6f8d30dadbdde1106a03dad1f3961956</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-02 21:49:55</sys_updated_on>
+        <sys_updated_on>2023-03-03 08:16:03</sys_updated_on>
     </sys_script_include>
 </record_update>

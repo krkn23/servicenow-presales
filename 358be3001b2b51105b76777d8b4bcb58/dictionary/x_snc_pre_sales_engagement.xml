@@ -11,6 +11,13 @@
             </choice>
         </element>
         <element label="Country" max_length="32" name="country" reference="core_country" type="reference"/>
+        <element choice="1" label="Deployment method" max_length="40" name="deployment_method" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Update Sets" sequence="1" value="update_sets"/>
+                <element inactive_on_update="false" label="Source Control / AppRepo" sequence="2" value="source_control"/>
+                <element inactive_on_update="false" label="Both Update Sets and Source Control" sequence="3" value="hybrid"/>
+            </choice>
+        </element>
         <element choice="1" label="Inbound Integrations" max_length="40" name="integrations_inbound" type="choice">
             <choice>
                 <element inactive_on_update="false" label="No" sequence="1" value="no"/>
@@ -31,11 +38,11 @@
                 <element inactive_on_update="false" label="Robust Product" sequence="4" value="robust"/>
             </choice>
         </element>
-        <element choice="1" label="Quality of requirements documentation" max_length="40" name="quality_of_requirements" type="choice">
+        <element choice="1" label="Quality of Requirements Documentation" max_length="40" name="quality_of_requirements" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Bullet Points" sequence="1" value="low"/>
                 <element inactive_on_update="false" label="Powerpoint" sequence="2" value="medium"/>
-                <element inactive_on_update="false" label="Detailed Document" sequence="3" value="high"/>
+                <element inactive_on_update="false" label="Detailed Documents" sequence="3" value="high"/>
             </choice>
         </element>
         <element label="Reference" max_length="40" name="reference" type="string"/>
