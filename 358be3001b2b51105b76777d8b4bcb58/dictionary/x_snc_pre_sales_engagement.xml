@@ -24,12 +24,21 @@
                 <element inactive_on_update="false" label="Yes" sequence="2" value="yes"/>
             </choice>
         </element>
+        <element label="Inbound Integrations List" max_length="4000" name="integrations_inbound_list" type="string"/>
         <element choice="1" label="Outbound Integrations" max_length="40" name="integrations_outbound" type="choice">
             <choice>
                 <element inactive_on_update="false" label="No" sequence="1" value="no"/>
                 <element inactive_on_update="false" label="Yes" sequence="2" value="yes"/>
             </choice>
         </element>
+        <element label="Outbound Integrations List" max_length="4000" name="integrations_outbound_list" type="string"/>
+        <element choice="1" label="One-time Data Imports" max_length="40" name="one_time_data_imports" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes" sequence="2" value="yes"/>
+            </choice>
+        </element>
+        <element label="One-time Data Imports List" max_length="4000" name="one_time_data_imports_list" type="string"/>
         <element choice="1" label="Quality" max_length="40" name="quality" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Research" sequence="1" value="research"/>

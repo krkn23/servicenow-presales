@@ -10,81 +10,162 @@
         <script><![CDATA[function GetEstimationRules()
 {
 	var rules = {
-		'tasks':
+		tasks:
 		{
-			'research':
+			research:
 			{
 				role: 'tc',
 				label: 'Research'
 			},
-			'implementation':
+			analysis:
+			{
+				role: 'bpc',
+				label: 'Requirement Analysis / Workshops'
+			},
+			implementation:
 			{
 				role: 'tc',
 				label: 'Implement'
 			}
 		},
-		'inputs':
+		inputs:
 		{
-
-			'type':
+			type:
 			{
-				'servicenow_led':
+				servicenow_led:
 				{
-					'confidence': 1,
-					'effort': 1.25
+					confidence: 1,
+					effort: 1.25
 				},
-				'partner_led':
+				partner_led:
 				{
-					'confidence': 0.75
+					confidence: 0.9
 				},
-				'customer_led':
+				customer_led:
 				{
-					'confidence': 0.5
+					confidence: 0.8
 				}
 			},
-			'context':
+			context:
 			{
-				'greenfield':
+				greenfield:
 				{
-					'confidence': 1.0
+					confidence: 1.0
 				},
-				'improvement':
+				improvement:
 				{
-					'confidence': 0.75
+					confidence: 0.75,
+					effort: 1.2
 				},
-				'replacement':
+				replacement:
 				{
-					'confidence': 0.5,
-					'effort': 1.5
+					confidence: 0.5,
+					effort: 1.5
 				},
 				'default':
 				{
-					'confidence': 0
+					confidence: 0
 				}
 			},
-			'deployment_method':
+			quality:
 			{
-				'update_sets':
+				research:
 				{
-					'confidence': 0.5,
-					'effort': 1.2 
+					confidence: 1,
+					tasks:
+					[
+						{
+							type: 'research',
+							effort: 10,
+							short_description: 'Research'
+						}
+					]
 				},
-				'source_control':
+				poc:
 				{
-					'confidence': 1,
-					'effort': 0.8
+					confidence: 1,
 				},
-				'hybrid':
+				mvp:
 				{
-					'confidence': 5,
-					'effort': 2
+					confidence: 1,
+					effort: 1.1
+				},
+				robust:
+				{
+					confidence: 0.8,
+					effort: 1.5
 				},
 				'default':
 				{
-					'confidence': 0,
-					'effort': 1.5
+					confidence: 0
 				}
-			}
+			},
+			deployment_method:
+			{
+				update_sets:
+				{
+					confidence: 0.5,
+					effort: 1.2 
+				},
+				source_control:
+				{
+					confidence: 1
+				},
+				hybrid:
+				{
+					confidence: 0.5,
+					effort: 2
+				},
+				'default':
+				{
+					confidence: 0,
+					effort: 1.5
+				}
+			},
+			integrations_inbound:
+			{
+				yes: {},
+				no: {},
+				'default':
+				{
+					confidence: 0
+				}
+			},
+			integrations_inbound_list:
+			{
+				condition:
+				{
+					integrations_inbound: 'yes'
+				},
+				task_per_line:
+				{
+					effort: 10,
+					type: 'implementation',
+					short_description: 'Implement Inbound Integration %'
+				}
+			},
+			integrations_outbound:
+			{
+				yes: {},
+				no: {},
+				'default':
+				{
+					confidence: 0
+				}
+			},
+			integrations_outbound_list:
+			{
+				condition:
+				{
+					integrations_outbound: 'yes'
+				},			
+				task_per_line:
+				{
+					effort: 5,
+					type: 'implementation',
+					short_description: 'Implement Outbound Integration %'
+				}
+			},			
 		}
 	};
 		
@@ -94,13 +175,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-03 08:11:34</sys_updated_on>
+        <sys_updated_on>2023-03-03 21:27:53</sys_updated_on>
     </sys_script_include>
 </record_update>
