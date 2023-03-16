@@ -13,11 +13,18 @@
 	var GetRecord = x_snc_devtools.GetRecord;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var GetValue = x_snc_devtools.GetValue;
+	var HtmlRenderTable = x_snc_devtools.HtmlRenderTable;
+	var HtmlRenderStyle = x_snc_devtools.HtmlRenderStyle;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	
 	
 	var strEngagement = GetParam('engagement');
 
 	var strHtml = '';
 	
+
 	strHtml += '<h1>PreSales - Estimate</h1>';
 
 	
@@ -31,8 +38,13 @@
 	var estimate = Estimate(grEngagement);
 	
 	
+	function RenderPersonDays(nPDs)
+	{
+		return GetIntegerValue(nPDs) + ' PDs';
+	}
 
-	
+	// Styles
+	strHtml += HtmlRenderStyle('table.tasks, th.tasks, td.tasks { border: 1px solid; padding: 2px; vertical-align: top }');			
 	
 	/*
 	strHtml += HtmlRenderTabNavigation(
@@ -51,10 +63,54 @@
 		strMode);
 	
 	*/
+
+	var aTaskTable = [];
 	
+	var aHeaderRow = [];
+	aHeaderRow.push({ header: true, content: 'Task'} );
+	aHeaderRow.push({ header: true, content: 'Effort'} );
+	//aHeaderRow.push({ header: true, content: 'Role'} );
+	
+	aTaskTable.push(aHeaderRow);	
+	
+	var aTasks = GetArrayValue(GetValue(estimate,'tasks'));
+	
+	for (var nTask = 0; nTask < aTasks.length; nTask++)
+	{
+		var task = aTasks[nTask];
+		
+		var aRow = [];
+		
+		// Short Description / Task
+		aRow.push(GetValue(task,'short_description'));
+		
+		// Effort
+		aRow.push( {
+			content: RenderPersonDays(GetValue(task,'effort')),
+			horizontal: 'right'
+			});
+		
+		//aRow.push('');
+						
+		aTaskTable.push(aRow);
+	}
+	
+	aTaskTable.push(
+		[
+			{ header: true, content: 'Total Effort' },
+			{ header: true, horizontal: 'right', content: RenderPersonDays(GetValue(estimate,'totals','effort')) }
+		])
+	
+	strHtml += HtmlRenderTable(aTaskTable,'tasks');	
+	
+
+	
+	
+	/*
 	strHtml += '<p>';
 		strHtml += 'Based on the given information, we recommend to offer 2 Technical Consultants for 2 months (80%)';
 	strHtml += '</p>';
+	*/
 	
 	strHtml += '<pre>' + x_snc_devtools.RenderValue(estimate)+ '</pre>';
 	
@@ -67,13 +123,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-02-26 20:06:17</sys_created_on>
         <sys_id>5f3d54cddb1d69106a03dad1f39619c0</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>HtmlRenderPageEstimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_5f3d54cddb1d69106a03dad1f39619c0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-03 21:24:46</sys_updated_on>
+        <sys_updated_on>2023-03-05 19:41:30</sys_updated_on>
     </sys_script_include>
 </record_update>

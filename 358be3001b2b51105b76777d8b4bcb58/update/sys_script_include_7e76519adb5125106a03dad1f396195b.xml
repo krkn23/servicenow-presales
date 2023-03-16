@@ -20,7 +20,7 @@
 			analysis:
 			{
 				role: 'bpc',
-				label: 'Requirement Analysis / Workshops'
+				label: 'Requirement Analysis / Workshop Moderation'
 			},
 			implementation:
 			{
@@ -35,7 +35,7 @@
 				servicenow_led:
 				{
 					confidence: 1,
-					effort: 1.25
+					effort_factor: 1.25
 				},
 				partner_led:
 				{
@@ -44,7 +44,12 @@
 				customer_led:
 				{
 					confidence: 0.8
+				},
+				'default':
+				{
+					confidence: 0
 				}
+				
 			},
 			context:
 			{
@@ -55,12 +60,12 @@
 				improvement:
 				{
 					confidence: 0.75,
-					effort: 1.2
+					effort_factor: 1.2
 				},
 				replacement:
 				{
 					confidence: 0.5,
-					effort: 1.5
+					effort_factor: 1.5
 				},
 				'default':
 				{
@@ -72,14 +77,16 @@
 				research:
 				{
 					confidence: 1,
+					effort_factor: 0.25
+					/*,
 					tasks:
 					[
 						{
 							type: 'research',
-							effort: 10,
+							base_effort: 5,
 							short_description: 'Research'
 						}
-					]
+					]*/
 				},
 				poc:
 				{
@@ -88,24 +95,75 @@
 				mvp:
 				{
 					confidence: 1,
-					effort: 1.1
+					effort_factor: 1.1
 				},
 				robust:
 				{
-					confidence: 0.8,
-					effort: 1.5
+					confidence: 1,
+					effort_factor: 1.5
 				},
 				'default':
 				{
 					confidence: 0
 				}
 			},
+			quality_of_requirements:
+			{
+				low:
+				{
+					confidence: 0.0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 15,
+							short_description: 'Requirement Analysis / Workshops'
+						}
+					]
+				},			
+				medium:
+				{
+					confidence: 0.5,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 10,
+							short_description: 'Requirement Analysis / Workshops'
+						}
+					]
+				},			
+				high:
+				{
+					confidence: 1.0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 5,
+							short_description: 'Analyse detailed requirements documentation'
+						}
+					]
+				},
+				'default':
+				{
+					confidence: 0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 5,
+							short_description: 'Requirements Exploration Workshops'
+						}
+					]					
+				}
+			},
 			deployment_method:
 			{
 				update_sets:
 				{
-					confidence: 0.5,
-					effort: 1.2 
+					confidence: 0.75,
+					effort_factor: 1.2 
 				},
 				source_control:
 				{
@@ -114,14 +172,31 @@
 				hybrid:
 				{
 					confidence: 0.5,
-					effort: 2
+					effort_factor: 1.5
 				},
 				'default':
 				{
-					confidence: 0,
-					effort: 1.5
+					confidence: 0
 				}
 			},
+			business_capabilities_list:
+			{
+				task_per_line:
+				{
+					base_effort: 5,
+					type: 'implementation',
+					short_description: 'Implement Business Capability %'
+				}
+			},		
+			personas_list:
+			{
+				task_per_line:
+				{
+					base_effort: 3,
+					type: 'implementation',
+					short_description: 'Implement Access Rights and Views for Persona %'
+				}
+			},				
 			integrations_inbound:
 			{
 				yes: {},
@@ -139,7 +214,7 @@
 				},
 				task_per_line:
 				{
-					effort: 10,
+					base_effort: 10,
 					type: 'implementation',
 					short_description: 'Implement Inbound Integration %'
 				}
@@ -161,11 +236,33 @@
 				},			
 				task_per_line:
 				{
-					effort: 5,
+					base_effort: 5,
 					type: 'implementation',
 					short_description: 'Implement Outbound Integration %'
 				}
 			},			
+			one_time_data_imports:
+			{
+				yes: {},
+				no: {},
+				'default':
+				{
+					confidence: 0
+				}
+			},
+			one_time_data_imports_list:
+			{
+				condition:
+				{
+					one_time_data_imports: 'yes'
+				},			
+				task_per_line:
+				{
+					base_effort: 2,
+					type: 'implementation',
+					short_description: 'One-time Data Import of %'
+				}
+			},				
 		}
 	};
 		
@@ -175,13 +272,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-03 21:27:53</sys_updated_on>
+        <sys_updated_on>2023-03-05 20:02:39</sys_updated_on>
     </sys_script_include>
 </record_update>

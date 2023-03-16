@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="2" type="collection">
+    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="4" type="collection">
+        <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
         <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string_full_utf8"/>
         <element label="Internal Team" max_length="2000" name="contacts_internal" type="string_full_utf8"/>
         <element label="Partner Contacts" max_length="2000" name="contacts_partner" type="string_full_utf8"/>
@@ -39,6 +40,7 @@
             </choice>
         </element>
         <element label="One-time Data Imports List" max_length="4000" name="one_time_data_imports_list" type="string"/>
+        <element label="Personas List" max_length="4000" name="personas_list" type="string"/>
         <element choice="1" label="Quality" max_length="40" name="quality" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Research" sequence="1" value="research"/>
