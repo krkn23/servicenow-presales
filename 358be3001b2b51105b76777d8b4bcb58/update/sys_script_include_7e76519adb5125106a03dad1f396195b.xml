@@ -179,13 +179,22 @@
 					confidence: 0
 				}
 			},
+			business_processes_list:
+			{
+				task_per_line:
+				{
+					base_effort: 5,
+					type: 'implementation',
+					short_description: 'Implement Business Process "%"'
+				}
+			},				
 			business_capabilities_list:
 			{
 				task_per_line:
 				{
 					base_effort: 5,
 					type: 'implementation',
-					short_description: 'Implement Business Capability %'
+					short_description: 'Implement Business Capability "%"'
 				}
 			},		
 			personas_list:
@@ -194,7 +203,29 @@
 				{
 					base_effort: 3,
 					type: 'implementation',
-					short_description: 'Implement Access Rights and Views for Persona %'
+					short_description: 'Implement Access Rights and Views for Persona "%"'
+				}
+			},		
+			service_portal:
+			{
+				yes_new: {},
+				yes_existing:
+				{
+					confidence: 0.75
+				},
+				no: {},
+				'default':
+				{
+					confidence: 0
+				}
+			},		
+			service_portal_features_list:
+			{
+				task_per_line:
+				{
+					base_effort: 5,
+					type: 'implementation',
+					short_description: 'Implement Service Portal Feature "%"'
 				}
 			},				
 			integrations_inbound:
@@ -216,7 +247,7 @@
 				{
 					base_effort: 10,
 					type: 'implementation',
-					short_description: 'Implement Inbound Integration %'
+					short_description: 'Implement Inbound Integration "%"'
 				}
 			},
 			integrations_outbound:
@@ -238,7 +269,7 @@
 				{
 					base_effort: 5,
 					type: 'implementation',
-					short_description: 'Implement Outbound Integration %'
+					short_description: 'Implement Outbound Integration "%"'
 				}
 			},			
 			one_time_data_imports:
@@ -260,7 +291,7 @@
 				{
 					base_effort: 2,
 					type: 'implementation',
-					short_description: 'One-time Data Import of %'
+					short_description: 'One-time Data Import "%"'
 				}
 			},				
 		}
@@ -272,13 +303,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-05 20:02:39</sys_updated_on>
+        <sys_updated_on>2023-03-21 13:27:44</sys_updated_on>
     </sys_script_include>
 </record_update>
