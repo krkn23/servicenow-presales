@@ -18,6 +18,7 @@
 	var HtmlRenderTable = x_snc_devtools.HtmlRenderTable;
 	var HtmlRenderStyle = x_snc_devtools.HtmlRenderStyle;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var GetFloatValue = x_snc_devtools.GetFloatValue;
 	var HtmlEncode = x_snc_devtools.HtmlEncode;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	
@@ -44,6 +45,13 @@
 	{
 		return GetIntegerValue(nPDs) + ' PDs';
 	}
+	
+	function RenderScore(fValue)
+	{
+		fValue = GetFloatValue(fValue);
+		var strResult = GetStringValue(fValue.toFixed(2));
+		return strResult;
+	}	
 
 	// Styles
 	strHtml += HtmlRenderStyle('table.tasks, th.tasks, td.tasks { border: 1px solid; padding: 2px; vertical-align: top }');			
@@ -56,9 +64,10 @@
 	strReference = strReference.trim();
 	if (strReference != '')
 	{
-		strHtml += '<p>Reference: ' + strReference + '</p>';
+		strHtml += '<p><b>Reference</b> ' + strReference + '</p>';
 	}
-	strHtml += '<p>' + HtmlEncode(grEngagement.description) + '</p>';
+	strHtml += '<p><b>Context/Requirements/Description</b></p>';
+	strHtml += '<p>'+ HtmlEncode(grEngagement.description) + '</p>';
 	
 	/*
 	strHtml += HtmlRenderTabNavigation(
@@ -116,8 +125,15 @@
 		])
 	
 	strHtml += HtmlRenderTable(aTaskTable,'tasks');	
-	
+	strHtml += '<p></p>';
 
+	strHtml += '<p>Based on the quality and the contents of the available information, the confidence score is '+ RenderScore(GetValue(estimate,'factors','confidence')) + '.</p>';
+	
+	strHtml += '<p>The effort is likely between  <b>'
+		+ RenderPersonDays(GetValue(estimate,'totals','effort_lower'))
+		+ '</b> and <b>'
+		+ RenderPersonDays(GetValue(estimate,'totals','effort_upper'))
+		+'</b>.</p>';
 	
 	
 	/*
@@ -137,13 +153,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-02-26 20:06:17</sys_created_on>
         <sys_id>5f3d54cddb1d69106a03dad1f39619c0</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>HtmlRenderPageEstimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_5f3d54cddb1d69106a03dad1f39619c0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-23 06:03:28</sys_updated_on>
+        <sys_updated_on>2023-03-24 18:43:20</sys_updated_on>
     </sys_script_include>
 </record_update>
