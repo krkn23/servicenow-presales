@@ -19,6 +19,7 @@
 	var Clone = x_snc_devtools.Clone;
 	var StringReplace = x_snc_devtools.StringReplace;
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var ArrayValueExists = x_snc_devtools.ArrayValueExists;
 
 
 	var rules = GetEstimationRules();
@@ -34,7 +35,7 @@
 		var strKey = aKeys[nKey];
 		var strInput = GetStringValue(GetValue(input,strKey));
 		estimate = SetValue(strInput,estimate,'input',strKey);
-		if (strInput == '')
+		if (strInput == '' && !strKey.endsWith('_list'))
 		{
 			strInput = 'default';
 		}
@@ -49,8 +50,8 @@
 			for (var nConditionInput = 0; nConditionInput < aConditionKeys.length; nConditionInput++)
 			{
 				var strConditionInput = aConditionKeys[nConditionInput];
-				var strConditionValue = GetValue(rule,'condition',strConditionInput);
-				if (strConditionValue != GetStringValue(GetValue(input,strConditionInput)) )
+				var aConditionValues = GetArrayValue(GetValue(rule,'condition',strConditionInput));
+				if (ArrayValueExists(aConditionValues,GetStringValue(GetValue(input,strConditionInput))) == false)
 				{
 					bCondition = false;
 				}
@@ -144,11 +145,11 @@
 	// Calculate Totals
 	estimate = SetValue(fTotalEffort,estimate,'totals','effort');
 	
-	var fDeviation = fTotalEffort * (1-(fConfidence*0.9));
+	var fDeviation = fTotalEffort * (1-(fConfidence*0.9)) / 2;
 	fDeviation = Math.round(fDeviation);
 	estimate = SetValue(fDeviation,estimate,'totals','effort_deviation');
 	
-	estimate = SetValue(fTotalEffort - fDeviation,estimate,'totals','effort_lower');
+	estimate = SetValue(fTotalEffort - (fDeviation/2),estimate,'totals','effort_lower');
 	estimate = SetValue(fTotalEffort + fDeviation,estimate,'totals','effort_upper');
 	
 	return estimate;
@@ -157,13 +158,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 19:58:35</sys_created_on>
         <sys_id>6f8d30dadbdde1106a03dad1f3961956</sys_id>
-        <sys_mod_count>53</sys_mod_count>
+        <sys_mod_count>56</sys_mod_count>
         <sys_name>Estimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_6f8d30dadbdde1106a03dad1f3961956</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-24 18:33:30</sys_updated_on>
+        <sys_updated_on>2023-03-24 19:30:23</sys_updated_on>
     </sys_script_include>
 </record_update>
