@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="4" type="collection">
+    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="5" type="collection">
         <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
         <element label="Business Processes List" max_length="4000" name="business_processes_list" type="string"/>
+        <element label="Catalog Items List" max_length="2000" name="catalog_items_list" type="string"/>
         <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string_full_utf8"/>
         <element label="Internal Team" max_length="2000" name="contacts_internal" type="string_full_utf8"/>
         <element label="Partner Contacts" max_length="2000" name="contacts_partner" type="string_full_utf8"/>
@@ -34,6 +35,13 @@
             </choice>
         </element>
         <element label="Outbound Integrations List" max_length="4000" name="integrations_outbound_list" type="string"/>
+        <element choice="1" label="Internationalization" max_length="40" name="internationalization" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No, English only. No preparation for more languages" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes" sequence="2" value="yes"/>
+            </choice>
+        </element>
+        <element label="Languages List" max_length="2000" name="languages_list" type="string"/>
         <element choice="1" label="One-time Data Imports" max_length="40" name="one_time_data_imports" type="choice">
             <choice>
                 <element inactive_on_update="false" label="No" sequence="1" value="no"/>
@@ -58,9 +66,15 @@
             </choice>
         </element>
         <element label="Reference" max_length="40" name="reference" type="string"/>
+        <element choice="1" label="Service Catalog" max_length="40" name="service_catalog" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes" sequence="1" value="yes"/>
+            </choice>
+        </element>
         <element choice="1" label="Service Portal" max_length="40" name="service_portal" type="choice">
             <choice>
-                <element inactive_on_update="false" label="no" sequence="1" value="No"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
                 <element inactive_on_update="false" label="Yes, extending an existing Portal" sequence="2" value="yes_existing"/>
                 <element inactive_on_update="false" label="Yes, new Portal" sequence="3" value="yes_new"/>
             </choice>
