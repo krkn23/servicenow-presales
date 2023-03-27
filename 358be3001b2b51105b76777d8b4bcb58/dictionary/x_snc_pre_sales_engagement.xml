@@ -2,7 +2,7 @@
     <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="5" type="collection">
         <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
         <element label="Business Processes List" max_length="4000" name="business_processes_list" type="string"/>
-        <element label="Catalog Items List" max_length="2000" name="catalog_items_list" type="string"/>
+        <element label="Catalog Items List" mandatory="true" max_length="2000" name="catalog_items_list" type="string"/>
         <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string_full_utf8"/>
         <element label="Internal Team" max_length="2000" name="contacts_internal" type="string_full_utf8"/>
         <element label="Partner Contacts" max_length="2000" name="contacts_partner" type="string_full_utf8"/>
@@ -95,7 +95,7 @@
                 <element inactive_on_update="false" label="Yes, new Portal" sequence="3" value="yes_new"/>
             </choice>
         </element>
-        <element label="Service Portal Features List" max_length="4000" name="service_portal_features_list" type="string"/>
+        <element label="Service Portal Features List" mandatory="true" max_length="4000" name="service_portal_features_list" type="string"/>
         <element label="Team" max_length="2000" name="team" type="string_full_utf8"/>
         <element choice="1" label="Type" max_length="40" name="type" type="choice">
             <choice>
@@ -111,6 +111,6 @@
                 <element inactive_on_update="false" label="Yes, extending an existing Experience" sequence="3" value="yes_existing"/>
             </choice>
         </element>
-        <element label="UI Builder Pages List" max_length="2000" name="ui_builder_pages_list" type="string"/>
+        <element label="UI Builder Pages List" mandatory="true" max_length="2000" name="ui_builder_pages_list" type="string"/>
     </element>
 </database>
