@@ -65,6 +65,7 @@
             </choice>
         </element>
         <element label="One-time Data Imports List" max_length="4000" name="one_time_data_imports_list" type="string"/>
+        <element label="Open Questions" max_length="2000" name="open_questions" type="string"/>
         <element label="Personas List" max_length="4000" name="personas_list" type="string"/>
         <element choice="1" label="Quality" max_length="40" name="quality" type="choice">
             <choice>
