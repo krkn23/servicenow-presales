@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" sizeclass="5" type="collection">
+    <element db_object_id="6cd775b21b312550cd6153d16b4bcbd9" extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" type="collection">
         <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
         <element label="Business Processes List" max_length="4000" name="business_processes_list" type="string"/>
-        <element label="Catalog Items List" mandatory="true" max_length="2000" name="catalog_items_list" type="string"/>
+        <element label="Catalog Items List" mandatory="true" max_length="4000" name="catalog_items_list" type="string"/>
         <element label="Customer Contacts" max_length="2000" name="contacts_customer" type="string_full_utf8"/>
         <element label="Internal Team" max_length="2000" name="contacts_internal" type="string_full_utf8"/>
         <element label="Partner Contacts" max_length="2000" name="contacts_partner" type="string_full_utf8"/>
@@ -65,7 +65,7 @@
             </choice>
         </element>
         <element label="One-time Data Imports List" max_length="4000" name="one_time_data_imports_list" type="string"/>
-        <element label="Open Questions" max_length="2000" name="open_questions" type="string"/>
+        <element label="Open Questions" max_length="4000" name="open_questions" type="string"/>
         <element label="Personas List" max_length="4000" name="personas_list" type="string"/>
         <element choice="1" label="Quality" max_length="40" name="quality" type="choice">
             <choice>
@@ -97,7 +97,6 @@
             </choice>
         </element>
         <element label="Service Portal Features List" mandatory="true" max_length="4000" name="service_portal_features_list" type="string"/>
-        <element label="Team" max_length="2000" name="team" type="string_full_utf8"/>
         <element choice="1" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="ServiceNow-led" sequence="1" value="servicenow_led"/>
@@ -112,6 +111,6 @@
                 <element inactive_on_update="false" label="Yes, extending an existing Experience" sequence="3" value="yes_existing"/>
             </choice>
         </element>
-        <element label="UI Builder Pages List" mandatory="true" max_length="2000" name="ui_builder_pages_list" type="string"/>
+        <element label="UI Builder Pages List" mandatory="true" max_length="4000" name="ui_builder_pages_list" type="string"/>
     </element>
 </database>
