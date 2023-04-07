@@ -42,7 +42,7 @@
 					assumptions:
 					[
 						'This is a greenfield project. There is no existing product to be changed or replaced.',
-						'Requirements are rather flexible and there decisions on how exactly the solution may look or be built are yet to be made.'
+						'Requirements are rather flexible and decisions on how exactly the solution may look or be built are yet to be made.'
 					],
 					confidence: 1.0
 				},
@@ -80,34 +80,49 @@
 			{
 				research:
 				{
+					assumptions:
+					[
+						'The expected outcome are research results. This may involve experimental implementation or a documentation on how requirements can be fulfilled.',
+						'Any experimental implementations are NOT suitable for production use.'
+					],					
 					confidence: 1,
 					effort_factor: 0.25
-					/*,
-					tasks:
-					[
-						{
-							type: 'research',
-							base_effort: 5,
-							short_description: 'Research'
-						}
-					]*/
 				},
 				poc:
 				{
+					assumptions:
+					[
+						'The expected output is a proof of concept implementation.',
+						'The delivered implementation is NOT suitable for production use.'
+					],					
 					confidence: 1,
 				},
 				mvp:
 				{
+					assumptions:
+					[
+						'The expected output is a minimal viable product.',
+						'The delivered product is READY for production use - but may not yet cover all identified use cases.'
+					],					
 					confidence: 1,
 					effort_factor: 1.1
 				},
 				robust:
 				{
+					assumptions:
+					[
+						'The expected output is a robust product.',
+						'The delivered product is READY for production use.'
+					],					
 					confidence: 1,
 					effort_factor: 1.5
 				},
 				'default':
 				{
+					open_questions:
+					[
+						'What is the expected output quality? Research? a proof of concept? A minimal viable product? A robust product?'
+					],					
 					confidence: 0
 				}
 			},
@@ -115,6 +130,10 @@
 			{
 				low:
 				{
+					assumptions:
+					[
+						'Available requirement documentation provides only a high-level view. More work is needed to identify and document requirements.'
+					],						
 					confidence: 0.0,
 					tasks:
 					[
@@ -127,6 +146,10 @@
 				},			
 				medium:
 				{
+					assumptions:
+					[
+						'Available requirement documentation provides a fair overview on use cases and some areas are covered in detail. Some additional work is needed to document requirements in more details.'
+					],						
 					confidence: 0.5,
 					tasks:
 					[
@@ -139,6 +162,10 @@
 				},			
 				high:
 				{
+					assumptions:
+					[
+						'Available requirement documentation covers all or nearly all areas and use cases in great details. It will require some effort to read and understand the documented requirements.'
+					],
 					confidence: 1.0,
 					tasks:
 					[
@@ -151,6 +178,10 @@
 				},
 				'default':
 				{
+					open_questions:
+					[
+						'Does requirement documentation exist and can it be shared?'
+					],						
 					confidence: 0,
 					tasks:
 					[
@@ -166,20 +197,36 @@
 			{
 				update_sets:
 				{
+					assumptions:
+					[
+						'Deployments are conducted using update sets. This causes some additional effort.'
+					],
 					confidence: 0.75,
 					effort_factor: 1.2 
 				},
 				source_control:
 				{
+					assumptions:
+					[
+						'Deployments are conducted using source control or AppRepo.'
+					],
 					confidence: 1
 				},
 				hybrid:
 				{
+					assumptions:
+					[
+						'Deployments are conducted using source control (e.g. AppRepo) and update sets. This is error prone and may cause significant additional efforts.'
+					],					
 					confidence: 0.5,
 					effort_factor: 1.5
 				},
 				'default':
 				{
+					open_questions:
+					[
+						'How are deployements conducted today? Using source control? Update Sets? Or both?'
+					],						
 					confidence: 0
 				}
 			},
@@ -187,14 +234,26 @@
 			{
 				no:
 				{
+					assumptions:
+					[
+						'There is no existing data segregation mechanisms implemented.'
+					]					
 				},
 				domain_separation:
 				{
+					assumptions:
+					[
+						'Domain Separation is used on the affected instances.',
+					],					
 					confidence: 0.8,
 					effort_factor: 1.2
 				},
 				domain_separation_process:
 				{
+					assumptions:
+					[
+						'Domain Separation and Process Separation is used on the affected instances. The increased complexity causes significant additional efforts.'
+					],
 					confidence: 0.5,
 					effort_factor: 1.4,
 					tasks:
@@ -208,6 +267,10 @@
 				},				
 				custom:
 				{
+					assumptions:
+					[
+						'A custom solution is in place to conduct data segregation (e.g. before query business rules). The existing mechanisms must be understood and considered when implementing the solution. This leads to additional efforts.'
+					],					
 					confidence: 0.0,
 					effort_factor: 1.3,
 					tasks:
@@ -221,6 +284,10 @@
 				},		
 				datasilos:
 				{
+					assumptions:
+					[
+						'DataSilos is actively used on the affected instances. The impact must be understood and considered.'
+					],					
 					confidence: 1.0,
 					effort_factor: 1.1,
 					tasks:
@@ -234,6 +301,10 @@
 				},					
 				hybrid:
 				{
+					assumptions:
+					[
+						'A hybrid data segregation solution is in place. This means that e.g. domain separation and a custom solution is combined. The impact of the existing data segregation solution must be analysed and fully understood to design and implement the solution. This causes significant additional effort.'
+					],					
 					confidence: 0.0,
 					effort_factor: 1.5,
 					tasks:
@@ -247,6 +318,10 @@
 				},
 				'default':
 				{
+					open_questions:
+					[
+						'Is there any data segregation solution in place on the affected instances? That may be Domain Separation (with or withut Process Separation), a custom built solution, DataSilos, or a combination.'
+					],					
 					confidence: 0
 				}
 			},		
@@ -254,9 +329,17 @@
 			{
 				no:
 				{
+					assumptions:
+					[
+						'There are no data segregation related requrements.'
+					]
 				},
 				yes:
 				{
+					assumptions:
+					[
+						'Data segregation is a requirement. This causes additional effort no matter which solution is implemented.'
+					],
 					confidence: 0.5,
 					effort_factor: 1.2,
 					tasks:
@@ -273,6 +356,22 @@
 						}
 					]						
 				},
+				default:
+				{
+					open_questions:
+					[
+						'Is data segregation required?'
+					],
+					confidence: 0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 2,
+							short_description: 'Identification of potential data segregation requirements'						
+						}
+					]
+				}
 			},
 			business_processes_list:
 			{
@@ -280,7 +379,7 @@
 				{
 					base_effort: 5,
 					type: 'implementation',
-					short_description: 'Implement Business Process "%"'
+					short_description: 'Implement Business Process "{0}"'
 				}
 			},				
 			business_capabilities_list:
@@ -289,7 +388,7 @@
 				{
 					base_effort: 5,
 					type: 'implementation',
-					short_description: 'Implement Business Capability "%"'
+					short_description: 'Implement Business Capability "{0}"'
 				}
 			},		
 			personas_list:
@@ -298,17 +397,32 @@
 				{
 					base_effort: 3,
 					type: 'implementation',
-					short_description: 'Implement Access Rights and Views for Persona "%"'
+					short_description: 'Implement Access Rights and Views for Persona "{0}"'
 				}
 			},		
 			internationalization:
 			{
-				yes: {
+				yes:
+				{
+					assumptions:
+					[
+						'The product supports additional languages and is fully prepared to show localized screen text.'
+					],
 					effort_factor: 1.2
 				},
-				no: {},
+				no:
+				{
+					assumptions:
+					[
+						'English is the only supported language.'
+					]					
+				},
 				'default':
 				{
+					open_questions:
+					[
+						'Are any other languages than English to be supported - now or in the future?'
+					],					
 					confidence: 0
 				}
 			},		
@@ -322,15 +436,23 @@
 				{
 					base_effort: 2,
 					type: 'implementation',
-					short_description: 'Manage and ingest translations for "%"'
+					short_description: 'Manage and ingest translations for "{0}"'
 				}
 			},							
 			service_catalog:
 			{
-				yes: {},
-				no: {},
+				yes:
+				{
+				},
+				no:
+				{
+				},
 				'default':
 				{
+					open_questions:
+					[
+						'Are there any requirements regarding the Service Catalog?'
+					],										
 					confidence: 0
 				}
 			},		
@@ -344,19 +466,35 @@
 				{
 					base_effort: 2,
 					type: 'implementation',
-					short_description: 'Implement Catalog Item "%"'
+					short_description: 'Implement Catalog Item "{0}"'
 				}
 			},							
 			service_portal:
 			{
-				yes_new: {},
+				yes_new:
+				{
+					assumptions:
+					[
+						'A new Service Portal is to be created.'
+					]					
+				},
 				yes_existing:
 				{
+					assumptions:
+					[
+						'An existing Service Portal is to be changed or extended.'
+					],
 					confidence: 0.75
 				},
-				no: {},
+				no:
+				{
+				},
 				'default':
 				{
+					open_questions:
+					[
+						'Are there any requirements regarding Service Portal?'
+					],					
 					confidence: 0
 				}
 			},		
@@ -370,13 +508,19 @@
 				{
 					base_effort: 3,
 					type: 'implementation',
-					short_description: 'Implement Service Portal Feature "%"'
+					short_description: 'Implement Service Portal Feature "{0}"'
 				}
 			},				
 			ui_builder:
 			{
 				yes_new:
 				{
+					assumptions:
+					[
+						'Using UI Builder to build user experiences may work well and fast if existing platform capabilities match closely with requirements. If not, great flexibility regarding the outcome is needed.',
+						'UI Builder should NOT be used to build pixel-perfect user interfaces.',
+						'UI Builder is best for configured workspace experiences. In any other cases UI Builder should be considered with great caution.'
+					],					
 					confidence: 0.2,
 					effort_factor: 1.1,
 					tasks:
@@ -390,6 +534,11 @@
 				},
 				yes_existing:
 				{
+					assumptions:
+					[
+						'Existing UI Builder Experiences need to be changed or extended. Understanding the existing implementation is crucial and will require significant additional effort.',
+						'Modifying an UI Builder Experience is inherently difficult and may not lead to the expected outcomes.'
+					],					
 					confidence: 0.1,
 					effort_factor: 1.5,
 					tasks:
@@ -403,10 +552,13 @@
 				},
 				no:
 				{
-					
 				},
 				'default':
 				{
+					assumptions:
+					[
+						'Are there any requirements regarding UI Builder?'
+					],					
 					confidence: 0
 				}
 			},		
@@ -420,15 +572,25 @@
 				{
 					base_effort: 3,
 					type: 'implementation',
-					short_description: 'Implement Service Portal Feature "%"'
+					short_description: 'Implement UI Builder Experience Feature "{0}"'
 				}
 			},							
 			integrations_inbound:
 			{
-				yes: {},
+				yes:
+				{
+					assumptions:
+					[
+						'Inbound integrations store ingested data into staging tables which is then merged with data on actual tables where this data is used. This allows for automated testing and is the foundation for a robust process.'
+					]
+				},
 				no: {},
 				'default':
 				{
+					open_questions:
+					[
+						'Are any inbound integrations required?'
+					],					
 					confidence: 0
 				}
 			},
@@ -442,7 +604,7 @@
 				{
 					base_effort: 10,
 					type: 'implementation',
-					short_description: 'Implement Inbound Integration "%"'
+					short_description: 'Implement Inbound Integration "{0}"'
 				}
 			},
 			integrations_outbound:
@@ -451,6 +613,10 @@
 				no: {},
 				'default':
 				{
+					open_questions:
+					[
+						'Are any outbound integrations required?'
+					],					
 					confidence: 0
 				}
 			},
@@ -464,7 +630,7 @@
 				{
 					base_effort: 5,
 					type: 'implementation',
-					short_description: 'Implement Outbound Integration "%"'
+					short_description: 'Implement Outbound Integration "{0}"'
 				}
 			},			
 			one_time_data_imports:
@@ -473,6 +639,10 @@
 				no: {},
 				'default':
 				{
+					open_questions:
+					[
+						'Are any one-time data imports required?'
+					],					
 					confidence: 0
 				}
 			},
@@ -486,13 +656,17 @@
 				{
 					base_effort: 2,
 					type: 'implementation',
-					short_description: 'One-time Data Import "%"'
+					short_description: 'One-time Data Import "{0}"'
 				}
 			},		
 			type:
 			{
 				servicenow_led:
 				{
+					assumptions:
+					[
+						'The engagement is led by ServiceNow.'
+					],					
 					confidence: 1,
 					tasks:
 					[
@@ -505,14 +679,26 @@
 				},
 				partner_led:
 				{
+					assumptions:
+					[
+						'The engagement is led by a ServiceNow partner.'
+					],	
 					confidence: 0.9
 				},
 				customer_led:
 				{
+					assumptions:
+					[
+						'The engagement is led by the customer.'
+					],	
 					confidence: 0.8
 				},
 				'default':
 				{
+					open_questions:
+					[
+						'Which party leads the engagement?'
+					],		
 					confidence: 0
 				}
 			},
@@ -522,7 +708,6 @@
 			'All implementation efforts consider coordination work, regular meetings and administration tasks.',
 			'All implementation efforts include the creation of automated tests - which is non-negotiable.',
 			'All implementation efforts include writing technical documentation.',
-			'Inbound integrations store ingested data into staging tables which is then merged with data on actual tables where this data is used. This allows for automated testing and is the foundation for a robust process.',
 			'Travel time is NOT considered.',
 			'Efforts do NOT consider any onboarding tasks required by the customer.',
 			'The estimate does NOT contain writing copy text, knowledge base articles, end-user documentation or translations of any kind.',
@@ -536,13 +721,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>60</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-07 15:41:02</sys_updated_on>
+        <sys_updated_on>2023-04-07 17:34:40</sys_updated_on>
     </sys_script_include>
 </record_update>
