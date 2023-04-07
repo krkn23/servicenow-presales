@@ -20,7 +20,7 @@
         <runtime_access_tracking>permissive</runtime_access_tracking>
         <scope>x_snc_pre_sales</scope>
         <scoped_administration>false</scoped_administration>
-        <short_description/>
+        <short_description>Estimate ServiceNow AppEngine projects.</short_description>
         <source>x_snc_pre_sales</source>
         <store_correlation_id/>
         <store_url/>
@@ -29,9 +29,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-29 08:43:01</sys_created_on>
         <sys_id>358be3001b2b51105b76777d8b4bcb58</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-03 20:03:04</sys_updated_on>
+        <sys_updated_on>2023-04-07 20:30:54</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
@@ -46,4 +46,5 @@
         <x_snc_wildgrubelab_test/>
         <x_snc_wildgrubelab_test2/>
     </sys_app>
+    <sys_translated_text action="delete_multiple" query="documentkey=358be3001b2b51105b76777d8b4bcb58"/>
 </record_update>
