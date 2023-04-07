@@ -39,20 +39,40 @@
 			{
 				greenfield:
 				{
+					assumptions:
+					[
+						'This is a greenfield project. There is no existing product to be changed or replaced.',
+						'Requirements are rather flexible and there decisions on how exactly the solution may look or be built are yet to be made.'
+					],
 					confidence: 1.0
 				},
 				improvement:
 				{
+					assumptions:
+					[
+						'This project aims at improving an existing product. Changes and extensions should hence be built on top of an existing implementation.',
+						'Understanding the architecture of the existing solution is crucial and requires some additional effort.',
+						'Architectural decisions already made may prevent the application to follow good practises.'
+					],
 					confidence: 0.75,
 					effort_factor: 1.2
 				},
 				replacement:
 				{
+					assumptions:
+					[
+						'This project aims at replacing an existing product - that may be a solution built in ServiceNow or any other technology.',
+						'Some stakeholders may expect a new solution that looks and works very similar to the existing product - which may limit implementation options.'
+					],
 					confidence: 0.5,
 					effort_factor: 1.5
 				},
 				'default':
 				{
+					open_questions:
+					[
+						'Does this project aim at building something completely new, improve an existing solution or even fully replace an existing solution?'
+					],
 					confidence: 0
 				}
 			},
@@ -516,13 +536,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-03 15:03:04</sys_updated_on>
+        <sys_updated_on>2023-04-07 15:41:02</sys_updated_on>
     </sys_script_include>
 </record_update>
