@@ -7,24 +7,21 @@
         <client_callable>false</client_callable>
         <description>Produces a log output in the application log.</description>
         <name>Log</name>
-        <script><![CDATA[function Log(strText)
+        <script><![CDATA[function Log(vPayload)
 {
-	if (AppGetProperty('log.active'))
-	{
-		x_snc_devtools.Log('PreSales: '+gs.getUserName()+': '+strText);
-	}
+	gs.info('PreSales: '+gs.getUserName()+': '+x_snc_devtools.PrepareLogInfo(vPayload));
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-29 08:44:28</sys_created_on>
         <sys_id>0fdb6b001b2b51105b76777d8b4bcba7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Log</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy/>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_0fdb6b001b2b51105b76777d8b4bcba7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-29 08:44:28</sys_updated_on>
+        <sys_updated_on>2023-04-14 06:12:16</sys_updated_on>
     </sys_script_include>
 </record_update>
