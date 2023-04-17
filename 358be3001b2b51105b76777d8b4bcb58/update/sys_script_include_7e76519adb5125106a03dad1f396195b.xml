@@ -148,7 +148,7 @@
 				{
 					assumptions:
 					[
-						'Available requirement documentation provides a fair overview on use cases and some areas are covered in detail. Some additional work is needed to document requirements in more details.'
+						'Available requirement documentation provides a fair overview on use cases and some areas are covered in detail. Some additional work is needed to document requirements in more detail.'
 					],						
 					confidence: 0.5,
 					tasks:
@@ -164,7 +164,7 @@
 				{
 					assumptions:
 					[
-						'Available requirement documentation covers all or nearly all areas and use cases in great details. It will require some effort to read and understand the documented requirements.'
+						'Available requirement documentation covers all or nearly all areas and use cases in great detail. It will require some effort to read and understand the documented requirements.'
 					],
 					confidence: 1.0,
 					tasks:
@@ -331,7 +331,7 @@
 				{
 					assumptions:
 					[
-						'There are no data segregation related requrements.'
+						'There are no data segregation related requirements.'
 					]
 				},
 				yes:
@@ -721,13 +721,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>62</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-07 17:46:39</sys_updated_on>
+        <sys_updated_on>2023-04-17 06:27:31</sys_updated_on>
     </sys_script_include>
 </record_update>
