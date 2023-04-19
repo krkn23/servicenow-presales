@@ -27,6 +27,7 @@
                 <element inactive_on_update="false" label="Both Update Sets and Source Control" sequence="3" value="hybrid"/>
             </choice>
         </element>
+        <element display="true" label="Display" max_length="200" name="display" read_only="true" type="string"/>
         <element choice="1" label="Existing Data Segregation" max_length="40" name="existing_data_segregation" type="choice">
             <choice>
                 <element inactive_on_update="false" label="None" sequence="1" value="none"/>
