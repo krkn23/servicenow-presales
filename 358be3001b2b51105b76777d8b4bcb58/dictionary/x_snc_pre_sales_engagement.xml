@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="6cd775b21b312550cd6153d16b4bcbd9" extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" type="collection">
+        <element label="Assumptions" max_length="4000" name="assumptions" type="string"/>
         <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
         <element label="Business Processes List" max_length="4000" name="business_processes_list" type="string"/>
         <element label="Catalog Items List" mandatory="true" max_length="4000" name="catalog_items_list" type="string"/>
@@ -106,7 +107,7 @@
                 <element inactive_on_update="false" label="Customer-led" sequence="3" value="customer_led"/>
             </choice>
         </element>
-        <element choice="1" label="UI Builder" max_length="40" name="ui_builder" type="choice">
+        <element choice="1" label="UI Builder / Next Experience / Configurable Workspace" max_length="40" name="ui_builder" type="choice">
             <choice>
                 <element inactive_on_update="false" label="No" sequence="1" value="no"/>
                 <element inactive_on_update="false" label="Yes, new Experience" sequence="2" value="yes_new"/>
