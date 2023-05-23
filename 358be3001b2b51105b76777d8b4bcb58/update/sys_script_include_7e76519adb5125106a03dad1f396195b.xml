@@ -709,6 +709,7 @@
 			'All implementation efforts include the creation of automated tests - which is non-negotiable.',
 			'All implementation efforts include writing technical documentation.',
 			'Travel time is NOT considered.',
+			'Training efforts and related costs are NOT considered.',
 			'Efforts do NOT consider any onboarding tasks required by the customer.',
 			'The estimate does NOT contain writing copy text, knowledge base articles, end-user documentation or translations of any kind.',
 			'Compliance to the customer\'s coding guideline can only be considered if automated checks are in place that can be executed by developers at any time. A coding guideline that exists as a document only can and will NOT be considered.',
@@ -722,13 +723,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>66</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-17 06:32:04</sys_updated_on>
+        <sys_updated_on>2023-05-23 06:22:51</sys_updated_on>
     </sys_script_include>
 </record_update>
