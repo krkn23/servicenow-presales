@@ -69,7 +69,16 @@
 		strHtml += '<p><b>Reference</b> ' + strReference + '</p>';
 	}
 	strHtml += '<p><b>Context/Requirements/Description</b></p>';
-	strHtml += '<p>'+ HtmlEncode(grEngagement.description) + '</p>';
+	var strDescription = GetStringValue(grEngagement.description);
+	strDescription = strDescription.trim();
+	if (strDescription == '')
+	{
+		strHtml += '<p>'+HtmlRenderError('Description is missing!')+'</p>';
+	}
+	else
+	{
+		strHtml += '<p>'+ HtmlEncode(grEngagement.description) + '</p>';
+	}
 	
 	// Open Questions
 	var aOpenQuestions = GetArrayValue(GetValue(estimate,'open_questions'));
@@ -84,24 +93,8 @@
 		strHtml += '</ul>';			
 	}
 	
-	/*
-	strHtml += HtmlRenderTabNavigation(
-		[
-			{
-				id: 'tree',
-				text: 'Dependency Tree',
-				url: '?package='+strPackage+'&mode=tree'
-			},
-			{
-				id: 'list',
-				text: 'Dependency List',
-				url: '?package='+strPackage+'&mode=list'
-			}
-		],
-		strMode);
+	strHtml += '<p><b>Effort Breakdown</b></p>';
 	
-	*/
-
 	var aTaskTable = [];
 	
 	var aHeaderRow = [];
@@ -191,13 +184,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-02-26 20:06:17</sys_created_on>
         <sys_id>5f3d54cddb1d69106a03dad1f39619c0</sys_id>
-        <sys_mod_count>44</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>HtmlRenderPageEstimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_5f3d54cddb1d69106a03dad1f39619c0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-14 07:31:00</sys_updated_on>
+        <sys_updated_on>2023-06-03 09:22:32</sys_updated_on>
     </sys_script_include>
 </record_update>
