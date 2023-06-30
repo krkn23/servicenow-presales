@@ -391,6 +391,15 @@
 					short_description: 'Implement Business Capability "{0}"'
 				}
 			},		
+			data_entities_list:
+			{
+				task_per_line:
+				{
+					base_effort: 3,
+					type: 'implementation',
+					short_description: 'Implement Data Entity "{0}"'
+				}
+			},				
 			personas_list:
 			{
 				task_per_line:
@@ -726,13 +735,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>69</sys_mod_count>
+        <sys_mod_count>70</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-05 13:25:40</sys_updated_on>
+        <sys_updated_on>2023-06-30 13:53:48</sys_updated_on>
     </sys_script_include>
 </record_update>

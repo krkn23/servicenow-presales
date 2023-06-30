@@ -16,6 +16,7 @@
             </choice>
         </element>
         <element label="Country" max_length="32" name="country" reference="core_country" type="reference"/>
+        <element label="Data Entities List" max_length="4000" name="data_entities_list" type="string"/>
         <element choice="1" label="Data Segregation required" max_length="40" name="data_segregation_required" type="choice">
             <choice>
                 <element inactive_on_update="false" label="No" sequence="1" value="no"/>
