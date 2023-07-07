@@ -4,13 +4,13 @@
             <element>number</element>
             <position>0</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>676de934973b6510a6a07767f053afa7</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>ae6df5031b7be910cd6153d16b4bcb63</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,27 +18,27 @@
             <element>reference</element>
             <position>1</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>e76de934973b6510a6a07767f053afa7</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>266df5031b7be910cd6153d16b4bcb64</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>country</element>
+            <element>company_name</element>
             <position>2</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>6b6de934973b6510a6a07767f053afa7</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>a66df5031b7be910cd6153d16b4bcb64</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.split</element>
             <position>3</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>eb6de934973b6510a6a07767f053afa7</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>2a6df5031b7be910cd6153d16b4bcb64</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>active</element>
             <position>4</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>6f6de934973b6510a6a07767f053afa7</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>e26d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,27 +74,27 @@
             <element>assigned_to</element>
             <position>5</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>ef6de934973b6510a6a07767f053afa7</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>666d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>priority</element>
+            <element>country</element>
             <position>6</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>636de934973b6510a6a07767f053afa8</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>e66d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -102,83 +102,69 @@
             <element>.end_split</element>
             <position>7</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>e36de934973b6510a6a07767f053afa8</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>6a6d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>company_name</element>
+            <element>short_description</element>
             <position>8</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>676de934973b6510a6a07767f053afa8</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>ea6d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>short_description</element>
-            <position>9</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>e76de934973b6510a6a07767f053afa8</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>10</position>
+            <position>9</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>6b6de934973b6510a6a07767f053afa8</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>6e6d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>open_questions</element>
-            <position>11</position>
+            <position>10</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>eb6de934973b6510a6a07767f053afa8</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>ee6d39031b7be910cd6153d16b4bcbe6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>notes</element>
-            <position>12</position>
+            <position>11</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-06-30 13:54:23</sys_created_on>
-            <sys_id>6f6de934973b6510a6a07767f053afa8</sys_id>
+            <sys_created_on>2023-07-07 14:50:33</sys_created_on>
+            <sys_id>626d39031b7be910cd6153d16b4bcbe7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_pre_sales_engagement" sys_domain="global" view="Default view">48adeb801b2b51105b76777d8b4bcb2e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-06-30 13:54:23</sys_updated_on>
+            <sys_updated_on>2023-07-07 14:50:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
