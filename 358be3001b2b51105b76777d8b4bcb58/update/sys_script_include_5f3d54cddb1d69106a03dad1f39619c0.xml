@@ -99,6 +99,7 @@
 	var aTaskTable = [];
 	
 	var aHeaderRow = [];
+	aHeaderRow.push({ header: true, content: '#'} );
 	aHeaderRow.push({ header: true, content: 'Task'} );
 	aHeaderRow.push({ header: true, content: 'Effort'} );
 	//aHeaderRow.push({ header: true, content: 'Role'} );
@@ -112,6 +113,9 @@
 		var task = aTasks[nTask];
 		
 		var aRow = [];
+		
+		// Number
+		aRow.push({ content: nTask + 1, horizontal: 'right' });
 		
 		// Short Description / Task
 		aRow.push(GetValue(task,'short_description'));
@@ -129,6 +133,7 @@
 	
 	aTaskTable.push(
 		[
+			'',
 			{ header: true, content: 'Total Effort' },
 			{ header: true, horizontal: 'right', content: RenderPersonDays(GetValue(estimate,'totals','effort')) }
 		])
@@ -176,13 +181,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-02-26 20:06:17</sys_created_on>
         <sys_id>5f3d54cddb1d69106a03dad1f39619c0</sys_id>
-        <sys_mod_count>51</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_name>HtmlRenderPageEstimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_5f3d54cddb1d69106a03dad1f39619c0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-07-07 07:59:22</sys_updated_on>
+        <sys_updated_on>2023-07-07 11:48:53</sys_updated_on>
     </sys_script_include>
 </record_update>
