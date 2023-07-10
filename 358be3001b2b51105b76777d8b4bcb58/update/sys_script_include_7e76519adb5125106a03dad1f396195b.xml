@@ -139,7 +139,7 @@
 					[
 						{
 							type: 'analysis',
-							base_effort: 15,
+							base_effort: 10,
 							short_description: 'Requirement Analysis / Workshops'
 						}
 					]
@@ -155,7 +155,7 @@
 					[
 						{
 							type: 'analysis',
-							base_effort: 10,
+							base_effort: 6,
 							short_description: 'Requirement Analysis / Workshops'
 						}
 					]
@@ -171,7 +171,7 @@
 					[
 						{
 							type: 'analysis',
-							base_effort: 5,
+							base_effort: 4,
 							short_description: 'Analyze detailed requirements documentation'
 						}
 					]
@@ -187,7 +187,7 @@
 					[
 						{
 							type: 'analysis',
-							base_effort: 5,
+							base_effort: 15,
 							short_description: 'Requirements Exploration Workshops'
 						}
 					]					
@@ -377,7 +377,7 @@
 			{
 				task_per_line:
 				{
-					base_effort: 5,
+					base_effort: 4,
 					type: 'implementation',
 					short_description: 'Implement Business Process "{0}"'
 				}
@@ -386,7 +386,7 @@
 			{
 				task_per_line:
 				{
-					base_effort: 5,
+					base_effort: 4,
 					type: 'implementation',
 					short_description: 'Implement Business Capability "{0}"'
 				}
@@ -395,7 +395,7 @@
 			{
 				task_per_line:
 				{
-					base_effort: 3,
+					base_effort: 2,
 					type: 'implementation',
 					short_description: 'Implement Data Entity "{0}"'
 				}
@@ -404,7 +404,7 @@
 			{
 				task_per_line:
 				{
-					base_effort: 3,
+					base_effort: 2,
 					type: 'implementation',
 					short_description: 'Implement Access Rights and Views for Persona "{0}"'
 				}
@@ -443,7 +443,7 @@
 				},				
 				task_per_line:
 				{
-					base_effort: 2,
+					base_effort: 1,
 					type: 'implementation',
 					short_description: 'Manage and ingest translations for "{0}"'
 				}
@@ -473,7 +473,7 @@
 				},				
 				task_per_line:
 				{
-					base_effort: 2,
+					base_effort: 1,
 					type: 'implementation',
 					short_description: 'Implement Catalog Item "{0}"'
 				}
@@ -515,7 +515,7 @@
 				},				
 				task_per_line:
 				{
-					base_effort: 3,
+					base_effort: 2,
 					type: 'implementation',
 					short_description: 'Implement Service Portal Feature "{0}"'
 				}
@@ -536,7 +536,7 @@
 					[
 						{
 							type: 'analysis',
-							base_effort: 5,
+							base_effort: 4,
 							short_description: 'Analysis whether requirements can be met using UI Builder'
 						}
 					]					
@@ -554,7 +554,7 @@
 					[
 						{
 							type: 'analysis',
-							base_effort: 5,
+							base_effort: 4,
 							short_description: 'Analysis of existing UI Builder Experience'
 						}
 					]							
@@ -611,7 +611,7 @@
 				},
 				task_per_line:
 				{
-					base_effort: 10,
+					base_effort: 8,
 					type: 'implementation',
 					short_description: 'Implement Inbound Integration "{0}"'
 				}
@@ -637,7 +637,7 @@
 				},			
 				task_per_line:
 				{
-					base_effort: 5,
+					base_effort: 4,
 					type: 'implementation',
 					short_description: 'Implement Outbound Integration "{0}"'
 				}
@@ -736,13 +736,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>73</sys_mod_count>
+        <sys_mod_count>74</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-07-07 14:54:00</sys_updated_on>
+        <sys_updated_on>2023-07-10 13:40:48</sys_updated_on>
     </sys_script_include>
 </record_update>
