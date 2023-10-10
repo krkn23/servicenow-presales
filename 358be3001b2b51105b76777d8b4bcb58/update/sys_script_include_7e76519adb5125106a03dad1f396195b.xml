@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_pre_sales.GetEstimationRules</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns an object with estimation rules.</description>
+        <name>GetEstimationRules</name>
+        <script><![CDATA[function GetEstimationRules()
+{
+	var rules = {
+		tasks:
+		{
+			research:
+			{
+				role: 'tc',
+				label: 'Research'
+			},
+			analysis:
+			{
+				role: 'bpc',
+				label: 'Requirement Analysis / Workshop Moderation'
+			},
+			implementation:
+			{
+				role: 'tc',
+				label: 'Implement'
+			},
+			management:
+			{
+				role: 'em',
+				label: 'Engagement Management'
+			}			
+		},
+		inputs:
+		{
+			context:
+			{
+				greenfield:
+				{
+					assumptions:
+					[
+						'This is a greenfield project. There is no existing product to be changed or replaced.',
+						'Requirements are rather flexible and decisions on how exactly the solution may look or be built are yet to be made.'
+					],
+					confidence: 1.0
+				},
+				improvement:
+				{
+					assumptions:
+					[
+						'This project aims at improving an existing product. Changes and extensions should hence be built on top of an existing implementation.',
+						'Understanding the architecture of the existing solution is crucial and requires some additional effort.',
+						'Architectural decisions already made may prevent the application to follow good practises.'
+					],
+					confidence: 0.75,
+					effort_factor: 1.2
+				},
+				replacement:
+				{
+					assumptions:
+					[
+						'This project aims at replacing an existing product - that may be a solution built in ServiceNow or any other technology.',
+						'Some stakeholders may expect a new solution that looks and works very similar to the existing product - which may limit implementation options.'
+					],
+					confidence: 0.5,
+					effort_factor: 1.5
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Does this project aim at building something completely new, improve an existing solution or even fully replace an existing solution?'
+					],
+					confidence: 0
+				}
+			},
+			quality:
+			{
+				research:
+				{
+					assumptions:
+					[
+						'The expected outcome are research results. This may involve experimental implementation or a documentation on how requirements can be fulfilled.',
+						'Any experimental implementations are NOT suitable for production use.'
+					],					
+					confidence: 1,
+					effort_factor: 0.25
+				},
+				poc:
+				{
+					assumptions:
+					[
+						'The expected output is a proof of concept implementation.',
+						'The delivered implementation is NOT suitable for production use.'
+					],					
+					confidence: 1,
+				},
+				mvp:
+				{
+					assumptions:
+					[
+						'The expected output is a minimal viable product.',
+						'The delivered product is READY for production use - but may not yet cover all identified use cases.'
+					],					
+					confidence: 1,
+					effort_factor: 1.1
+				},
+				robust:
+				{
+					assumptions:
+					[
+						'The expected output is a robust product.',
+						'The delivered product is READY for production use.'
+					],					
+					confidence: 1,
+					effort_factor: 1.5
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'What is the expected output quality? Research? A proof of concept? A minimal viable product? A robust product?'
+					],					
+					confidence: 0
+				}
+			},
+			quality_of_requirements:
+			{
+				low:
+				{
+					assumptions:
+					[
+						'Available requirement documentation provides only a high-level view. More work is needed to identify and document requirements.'
+					],						
+					confidence: 0.0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 10,
+							short_description: 'Requirement Analysis / Workshops'
+						}
+					]
+				},			
+				medium:
+				{
+					assumptions:
+					[
+						'Available requirement documentation provides a fair overview on use cases and some areas are covered in detail. Some additional work is needed to document requirements in more detail.'
+					],						
+					confidence: 0.5,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 6,
+							short_description: 'Requirement Analysis / Workshops'
+						}
+					]
+				},			
+				high:
+				{
+					assumptions:
+					[
+						'Available requirement documentation covers all or nearly all areas and use cases in great detail. It will require some effort to read and understand the documented requirements.'
+					],
+					confidence: 1.0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 4,
+							short_description: 'Analyze detailed requirements documentation'
+						}
+					]
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Does requirement documentation exist and can it be shared?'
+					],						
+					confidence: 0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 15,
+							short_description: 'Requirements Exploration Workshops'
+						}
+					]					
+				}
+			},
+			deployment_method:
+			{
+				update_sets:
+				{
+					assumptions:
+					[
+						'Deployments are conducted using update sets. This causes some additional effort.'
+					],
+					confidence: 0.75,
+					effort_factor: 1.2 
+				},
+				source_control:
+				{
+					assumptions:
+					[
+						'Deployments are conducted using source control or AppRepo.'
+					],
+					confidence: 1
+				},
+				hybrid:
+				{
+					assumptions:
+					[
+						'Deployments are conducted using source control (e.g. AppRepo) and update sets. This is error prone and may cause significant additional efforts.'
+					],					
+					confidence: 0.5,
+					effort_factor: 1.5
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'How are deployments conducted today? Using source control? Update sets? Or both?'
+					],						
+					confidence: 0
+				}
+			},
+			existing_data_segregation:
+			{
+				no:
+				{
+					assumptions:
+					[
+						'There is no existing data segregation mechanisms implemented.'
+					]					
+				},
+				domain_separation:
+				{
+					assumptions:
+					[
+						'Domain Separation is used on the affected instances.',
+					],					
+					confidence: 0.8,
+					effort_factor: 1.2
+				},
+				domain_separation_process:
+				{
+					assumptions:
+					[
+						'Domain Separation and Process Separation is used on the affected instances. The increased complexity causes significant additional efforts.'
+					],
+					confidence: 0.5,
+					effort_factor: 1.4,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 3,
+							short_description: 'Analysis of existing process separation'						
+						}
+					]					
+				},				
+				custom:
+				{
+					assumptions:
+					[
+						'A custom solution is in place to conduct data segregation (e.g. before query business rules). The existing mechanisms must be understood and considered when implementing the solution. This leads to additional efforts.'
+					],					
+					confidence: 0.0,
+					effort_factor: 1.3,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 3,
+							short_description: 'Analysis of existing custom data segregation implementation'						
+						}
+					]
+				},		
+				datasilos:
+				{
+					assumptions:
+					[
+						'DataSilos is actively used on the affected instances. The impact must be understood and considered.'
+					],					
+					confidence: 1.0,
+					effort_factor: 1.1,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 1,
+							short_description: 'Analysis of existing DataSilos implementation'						
+						}
+					]
+				},					
+				hybrid:
+				{
+					assumptions:
+					[
+						'A hybrid data segregation solution is in place. This means that e.g. domain separation and a custom solution is combined. The impact of the existing data segregation solution must be analyzed and fully understood to design and implement the solution. This causes significant additional effort.'
+					],					
+					confidence: 0.0,
+					effort_factor: 1.5,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 5,
+							short_description: 'Analysis of existing hybrid data segregation implementation'						
+						}
+					]					
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Is there any data segregation solution in place on the affected instances? That may be Domain Separation (with or without Process Separation), a custom built solution, DataSilos, or a combination.'
+					],					
+					confidence: 0
+				}
+			},		
+			data_segregation_required:
+			{
+				no:
+				{
+					assumptions:
+					[
+						'There are no data segregation related requirements.'
+					]
+				},
+				yes:
+				{
+					assumptions:
+					[
+						'Data segregation is a requirement. This causes additional effort no matter which solution is implemented.'
+					],
+					confidence: 0.5,
+					effort_factor: 1.2,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 5,
+							short_description: 'Analysis of data segregation requirements'						
+						},
+						{
+							type: 'implementation',
+							base_effort: 20,
+							short_description: 'Implementation of data segregation requirements'						
+						}
+					]						
+				},
+				default:
+				{
+					open_questions:
+					[
+						'Is data segregation required?'
+					],
+					confidence: 0,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 2,
+							short_description: 'Identification of potential data segregation requirements'						
+						}
+					]
+				}
+			},
+			business_processes_list:
+			{
+				task_per_line:
+				{
+					base_effort: 4,
+					type: 'implementation',
+					short_description: 'Implement Business Process "{0}"'
+				}
+			},				
+			business_capabilities_list:
+			{
+				task_per_line:
+				{
+					base_effort: 4,
+					type: 'implementation',
+					short_description: 'Implement Business Capability "{0}"'
+				}
+			},		
+			data_entities_list:
+			{
+				task_per_line:
+				{
+					base_effort: 2,
+					type: 'implementation',
+					short_description: 'Implement Data Entity "{0}"'
+				}
+			},				
+			personas_list:
+			{
+				task_per_line:
+				{
+					base_effort: 2,
+					type: 'implementation',
+					short_description: 'Implement Access Rights and Views for Persona "{0}"'
+				},
+				open_questions_if_empty:
+					[
+						'What are the relevant personas?'
+					]						
+			},		
+			internationalization:
+			{
+				yes:
+				{
+					assumptions:
+					[
+						'The product supports additional languages and is fully prepared to show localized screen text.'
+					],
+					effort_factor: 1.2
+				},
+				no:
+				{
+					assumptions:
+					[
+						'English is the only supported language.'
+					]					
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Are any other user interface languages than English to be supported - now or in the future?'
+					],					
+					confidence: 0
+				}
+			},		
+			languages_list:
+			{
+				condition:
+				{
+					internationalization: 'yes'
+				},				
+				task_per_line:
+				{
+					base_effort: 1,
+					type: 'implementation',
+					short_description: 'Manage and ingest translations for "{0}"'
+				}
+			},							
+			service_catalog:
+			{
+				yes:
+				{
+				},
+				no:
+				{
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Are there any requirements regarding the Service Catalog?'
+					],										
+					confidence: 0
+				}
+			},		
+			catalog_items_list:
+			{
+				condition:
+				{
+					service_catalog: 'yes'
+				},				
+				task_per_line:
+				{
+					base_effort: 1,
+					type: 'implementation',
+					short_description: 'Implement Catalog Item "{0}"'
+				}
+			},							
+			service_portal:
+			{
+				yes_new:
+				{
+					assumptions:
+					[
+						'A new Service Portal is to be created.'
+					],
+					tasks:
+					[
+						{
+							type: 'implementation',
+							base_effort: 4,
+							short_description: 'Setup new Service Portal'						
+						}
+					]						
+				},
+				yes_existing:
+				{
+					assumptions:
+					[
+						'An existing Service Portal is to be changed or extended.'
+					],
+					confidence: 0.75
+				},
+				no:
+				{
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Are there any requirements regarding Service Portal?'
+					],					
+					confidence: 0
+				}
+			},		
+			service_portal_features_list:
+			{
+				condition:
+				{
+					service_portal: ['yes_new','yes_existing']
+				},				
+				task_per_line:
+				{
+					base_effort: 2,
+					type: 'implementation',
+					short_description: 'Implement Service Portal Feature "{0}"'
+				}
+			},				
+			ui_builder:
+			{
+				yes_new:
+				{
+					assumptions:
+					[
+						'Using UI Builder to build user experiences may work well and fast if existing platform capabilities match closely with requirements. If not, great flexibility regarding the outcome is needed.',
+						'UI Builder should NOT be used to build pixel-perfect user interfaces.',
+						'UI Builder is best for configured workspace experiences. In any other cases UI Builder should be considered with great caution.'
+					],					
+					confidence: 0.2,
+					effort_factor: 1.1,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 4,
+							short_description: 'Analysis whether requirements can be met using UI Builder'
+						}
+					]					
+				},
+				yes_existing:
+				{
+					assumptions:
+					[
+						'Existing UI Builder Experiences need to be changed or extended. Understanding the existing implementation is crucial and will require significant additional effort.',
+						'Modifying an UI Builder Experience is inherently difficult and may not lead to the expected outcomes.'
+					],					
+					confidence: 0.1,
+					effort_factor: 1.5,
+					tasks:
+					[
+						{
+							type: 'analysis',
+							base_effort: 4,
+							short_description: 'Analysis of existing UI Builder Experience'
+						}
+					]							
+				},
+				no:
+				{
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Are there any requirements regarding UI Builder?'
+					],					
+					confidence: 0
+				}
+			},		
+			ui_builder_pages_list:
+			{
+				condition:
+				{
+					ui_builder: ['yes_new','yes_existing']
+				},				
+				task_per_line:
+				{
+					base_effort: 3,
+					type: 'implementation',
+					short_description: 'Implement UI Builder Experience Feature "{0}"'
+				}
+			},							
+			integrations_inbound:
+			{
+				yes:
+				{
+					assumptions:
+					[
+						'Inbound integrations store ingested data into staging tables which is then merged with data on actual tables where this data is used. This allows for automated testing and is the foundation for a robust process.'
+					]
+				},
+				no: {},
+				'default':
+				{
+					open_questions:
+					[
+						'Are any inbound integrations required?'
+					],					
+					confidence: 0
+				}
+			},
+			integrations_inbound_list:
+			{
+				condition:
+				{
+					integrations_inbound: 'yes'
+				},
+				task_per_line:
+				{
+					base_effort: 8,
+					type: 'implementation',
+					short_description: 'Implement Inbound Integration "{0}"'
+				}
+			},
+			integrations_outbound:
+			{
+				yes: {},
+				no: {},
+				'default':
+				{
+					open_questions:
+					[
+						'Are any outbound integrations required?'
+					],					
+					confidence: 0
+				}
+			},
+			integrations_outbound_list:
+			{
+				condition:
+				{
+					integrations_outbound: 'yes'
+				},			
+				task_per_line:
+				{
+					base_effort: 4,
+					type: 'implementation',
+					short_description: 'Implement Outbound Integration "{0}"'
+				}
+			},			
+			one_time_data_imports:
+			{
+				yes: {},
+				no: {},
+				'default':
+				{
+					open_questions:
+					[
+						'Are any one-time data imports required?'
+					],					
+					confidence: 0
+				}
+			},
+			one_time_data_imports_list:
+			{
+				condition:
+				{
+					one_time_data_imports: 'yes'
+				},			
+				task_per_line:
+				{
+					base_effort: 2,
+					type: 'implementation',
+					short_description: 'One-time Data Import "{0}"'
+				}
+			},		
+			type:
+			{
+				servicenow_led:
+				{
+					assumptions:
+					[
+						'The engagement is led by ServiceNow.'
+					],					
+					confidence: 1,
+					tasks:
+					[
+						{
+							type: 'management',
+							effort_factor: 0.25,
+							short_description: 'Engagement Management (25%)'						
+						}
+					]						
+				},
+				partner_led:
+				{
+					assumptions:
+					[
+						'The engagement is led by a ServiceNow partner.'
+					],	
+					confidence: 0.9
+				},
+				customer_led:
+				{
+					assumptions:
+					[
+						'The engagement is led by the customer.'
+					],	
+					confidence: 0.8
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Which party leads the engagement?'
+					],		
+					confidence: 0
+				}
+			},
+		},
+		assumptions:
+		[
+			'All implementation efforts consider coordination work, regular meetings and administration tasks.',
+			'All implementation efforts include the creation of automated tests - which is non-negotiable.',
+			'All implementation efforts include writing technical documentation.',
+			'All implementation efforts include defect correction.',
+			'Efforts related to production deployments are NOT contained. Performing production deployments is the customer\'s responsibility.',
+			'The UAT ("User Acceptance Test") is to be conducted by the customer - so NO efforts are included in this estimate for creating test plans, enabling test users, moderating test sessions with test users or providing test result reporting.',
+			'Travel time is NOT considered.',
+			'Training efforts and related costs are NOT considered.',
+			'Efforts do NOT consider any onboarding tasks required by the customer.',
+			'The estimate does NOT contain writing copy text, knowledge base articles, end-user documentation or translations of any kind.',
+			'Efforts do NOT contain any end-user training.',
+			'Compliance to the customer\'s coding guideline can only be considered if automated checks are in place that can be executed by developers at any time. A coding guideline that exists as a document only can and will NOT be considered.',
+			'Developed functionality is delivered as one or more new or changed scoped applications. Changes in the global scope are avoided where possible.'
+		]
+	};
+		
+	return rules;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-02 21:30:21</sys_created_on>
+        <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
+        <sys_mod_count>79</sys_mod_count>
+        <sys_name>GetEstimationRules</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-09 13:41:32</sys_updated_on>
+    </sys_script_include>
+</record_update>

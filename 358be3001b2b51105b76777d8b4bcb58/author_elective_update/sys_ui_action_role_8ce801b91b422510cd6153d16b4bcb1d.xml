@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_role">
+    <sys_ui_action_role action="DELETE">
+        <sys_class_name>sys_ui_action_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-07 13:59:25</sys_created_on>
+        <sys_id>8ce801b91b422510cd6153d16b4bcb1d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Estimate.x_snc_pre_sales.manager</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_ui_action display_value="Estimate">b30c144ddb1d69106a03dad1f3961985</sys_ui_action>
+        <sys_update_name>sys_ui_action_role_8ce801b91b422510cd6153d16b4bcb1d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-07 13:59:25</sys_updated_on>
+        <sys_user_role display_value="x_snc_pre_sales.manager" name="x_snc_pre_sales.manager">513c23401b2b51105b76777d8b4bcb3e</sys_user_role>
+    </sys_ui_action_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</application>
+        <file_path/>
+        <instance_id>84975bb2db8d919c4d2bac44d4961989</instance_id>
+        <instance_name>wildgrubetokyo</instance_name>
+        <name>sys_ui_action_role_8ce801b91b422510cd6153d16b4bcb1d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_role"><sys_ui_action_role action="INSERT_OR_UPDATE"><sys_class_name>sys_ui_action_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-04-07 13:59:25</sys_created_on><sys_id>8ce801b91b422510cd6153d16b4bcb1d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Estimate.x_snc_pre_sales.manager</sys_name><sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package><sys_policy/><sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope><sys_ui_action display_value="Estimate">b30c144ddb1d69106a03dad1f3961985</sys_ui_action><sys_update_name>sys_ui_action_role_8ce801b91b422510cd6153d16b4bcb1d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-04-07 13:59:25</sys_updated_on><sys_user_role display_value="x_snc_pre_sales.manager" name="x_snc_pre_sales.manager">513c23401b2b51105b76777d8b4bcb3e</sys_user_role></sys_ui_action_role></record_update>]]></payload>
+        <payload_hash>2012349501</payload_hash>
+        <record_name>Estimate.x_snc_pre_sales.manager</record_name>
+        <reverted_from/>
+        <source>7608f1b21b312550cd6153d16b4bcbc2</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-07 13:59:25</sys_created_on>
+        <sys_id>960941b91b422510cd6153d16b4bcb8d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1875c03cbe60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-07 13:59:25</sys_updated_on>
+        <type>UI Action Role</type>
+        <update_guid>de0941b94842251091321520494cc68c</update_guid>
+        <update_guid_history>de0941b94842251091321520494cc68c:2012349501</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-07 14:00:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_action_role">sys_ui_action_role</sys_db_object>
+        <sys_id>31ea686b81dd43548c5ebf0c72e5a5e4</sys_id>
+        <sys_metadata>8ce801b91b422510cd6153d16b4bcb1d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Estimate.x_snc_pre_sales.manager</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_scope_delete display_value="">d227e6d991564d2cba0e461fe46c1e10</sys_scope_delete>
+        <sys_update_name>sys_ui_action_role_8ce801b91b422510cd6153d16b4bcb1d</sys_update_name>
+        <sys_update_version display_value="sys_ui_action_role_8ce801b91b422510cd6153d16b4bcb1d">960941b91b422510cd6153d16b4bcb8d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-07 14:00:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

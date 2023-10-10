@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_pre_sales.HtmlRenderPageEstimate</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Renders the estimate page.</description>
+        <name>HtmlRenderPageEstimate</name>
+        <script><![CDATA[function HtmlRenderPageEstimate()
+{
+	var GetParam = x_snc_devtools.GetParam;
+	var GetRecord = x_snc_devtools.GetRecord;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var GetValue = x_snc_devtools.GetValue;
+	var HtmlRenderTable = x_snc_devtools.HtmlRenderTable;
+	var HtmlRenderStyle = x_snc_devtools.HtmlRenderStyle;
+	var HtmlRenderOrderedList = x_snc_devtools.HtmlRenderOrderedList;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var GetFloatValue = x_snc_devtools.GetFloatValue;
+	var HtmlEncode = x_snc_devtools.HtmlEncode;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var GetTimeNow = x_snc_devtools.GetTimeNow;
+	var RenderDateTime = x_snc_devtools.RenderDateTime;
+
+	
+	var strEngagement = GetParam('engagement');
+	var bDebug = GetBoolValue(GetParam('debug'));
+
+	var strHtml = '';
+	
+
+	strHtml += '<h1>PreSales - Estimate</h1>';
+
+	
+	var grEngagement = GetRecord('x_snc_pre_sales_engagement',strEngagement);
+	if (IsValidRecord(grEngagement) == false)
+	{
+		strHtml += HtmlRenderError('The pre-sales engagement could not be found.');
+		return strHtml;
+	}
+	
+	var estimate = Estimate(grEngagement);
+	
+	
+	function RenderPersonDays(nPDs)
+	{
+		return GetIntegerValue(nPDs) + ' PDs';
+	}
+	
+	function RenderScore(fValue)
+	{
+		fValue = GetFloatValue(fValue) * 100;
+		var strResult = GetStringValue(fValue.toFixed(0));
+		return strResult + ' %';
+	}	
+
+	// Styles
+	strHtml += HtmlRenderStyle('table.tasks, th.tasks, td.tasks { border: 1px solid; padding: 2px; vertical-align: top }');			
+	
+	
+	// Base info
+	
+	strHtml += '<h2>' + grEngagement.company_name + ' - ' + grEngagement.short_description + '</h2>';
+
+	strHtml += '<p>As of ' + RenderDateTime(GetTimeNow()) + ' UTC</p>';
+	
+	var strReference = GetStringValue(grEngagement.reference);
+	strReference = strReference.trim();
+	if (strReference != '')
+	{
+		strHtml += '<p><b>Reference</b> ' + strReference + '</p>';
+	}
+	strHtml += '<p><b>Context/Requirements/Description</b></p>';
+	var strDescription = GetStringValue(grEngagement.description);
+	strDescription = strDescription.trim();
+	if (strDescription == '')
+	{
+		strHtml += '<p>'+HtmlRenderError('Description is missing!')+'</p>';
+	}
+	else
+	{
+		strHtml += '<p>'+ HtmlEncode(grEngagement.description) + '</p>';
+	}
+	
+	// Open Questions
+	var aOpenQuestions = GetArrayValue(GetValue(estimate,'open_questions'));
+	if (aOpenQuestions.length > 0)
+	{
+		strHtml += '<p><b>Open Questions</b></p>';
+		strHtml += HtmlRenderOrderedList(aOpenQuestions);
+	}
+	
+	strHtml += '<p><b>Effort Breakdown</b></p>';
+	
+	var aTaskTable = [];
+	
+	var aHeaderRow = [];
+	aHeaderRow.push({ header: true, content: '#'} );
+	aHeaderRow.push({ header: true, content: 'Task'} );
+	aHeaderRow.push({ header: true, content: 'Effort'} );
+	//aHeaderRow.push({ header: true, content: 'Role'} );
+	
+	aTaskTable.push(aHeaderRow);	
+	
+	var aTasks = GetArrayValue(GetValue(estimate,'tasks'));
+	
+	for (var nTask = 0; nTask < aTasks.length; nTask++)
+	{
+		var task = aTasks[nTask];
+		
+		var aRow = [];
+		
+		// Number
+		aRow.push({ content: nTask + 1, horizontal: 'right' });
+		
+		// Short Description / Task
+		aRow.push(GetValue(task,'short_description'));
+		
+		// Effort
+		aRow.push( {
+			content: RenderPersonDays(GetValue(task,'effort')),
+			horizontal: 'right'
+			});
+		
+		//aRow.push('');
+						
+		aTaskTable.push(aRow);
+	}
+	
+	aTaskTable.push(
+		[
+			'',
+			{ header: true, content: 'Total Effort' },
+			{ header: true, horizontal: 'right', content: RenderPersonDays(GetValue(estimate,'totals','effort')) }
+		])
+	
+	strHtml += HtmlRenderTable(aTaskTable,'tasks');	
+	strHtml += '<p></p>';
+
+	strHtml += '<p>Based on the quality and the contents of the available information, the confidence score is '+ RenderScore(GetValue(estimate,'factors','confidence')) + '.</p>';
+	
+	strHtml += '<p>The effort is likely between  <b>'
+		+ RenderPersonDays(GetValue(estimate,'totals','effort_lower'))
+		+ '</b> and <b>'
+		+ RenderPersonDays(GetValue(estimate,'totals','effort_upper'))
+		+'</b>.</p>';
+	
+	strHtml += '<p>One PD ("person day") is equivalent to 8 hours.</p>';
+	
+	strHtml += '<p><b>Assumptions</b></p>';
+	var aAssumptions = GetArrayValue(GetValue(estimate,'assumptions'));
+	strHtml += HtmlRenderOrderedList(aAssumptions);
+
+	
+	var aOutOfScope = GetValue(estimate,'out_of_scope');
+	if (aOutOfScope.length > 0)
+	{
+		strHtml += '<p><b>Out of Scope</b></p>';
+		strHtml += HtmlRenderOrderedList(aOutOfScope);
+	}
+	
+	/*
+	strHtml += '<p>';
+		strHtml += 'Based on the given information, we recommend to offer 2 Technical Consultants for 2 months (80%)';
+	strHtml += '</p>';
+	*/
+	
+	if (bDebug == true)
+	{
+		strHtml += '<pre>' + x_snc_devtools.RenderValue(estimate)+ '</pre>';
+		strHtml += '<pre>' + x_snc_devtools.RenderValue(grEngagement)+ '</pre>';		
+	}
+	
+	
+	return strHtml;	
+
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-26 20:06:17</sys_created_on>
+        <sys_id>5f3d54cddb1d69106a03dad1f39619c0</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_name>HtmlRenderPageEstimate</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_update_name>sys_script_include_5f3d54cddb1d69106a03dad1f39619c0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-07 11:56:45</sys_updated_on>
+    </sys_script_include>
+</record_update>

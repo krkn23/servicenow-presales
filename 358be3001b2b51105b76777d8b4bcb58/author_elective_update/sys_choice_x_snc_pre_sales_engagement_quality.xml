@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="quality" table="x_snc_pre_sales_engagement" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>quality</element>
+            <name>x_snc_pre_sales_engagement</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-02-26 19:56:13</sys_created_on>
+            <sys_id>7e1b900ddb1d69106a03dad1f3961956</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>quality</sys_name>
+            <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+            <sys_update_name>sys_choice_x_snc_pre_sales_engagement_quality</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-02-26 19:56:13</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Research</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-02-26 19:56:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0c2bd00ddb1d69106a03dad1f39619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-02-26 19:56:47</sys_updated_on>
+            <value>research</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Proof of Concept</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-02-26 19:56:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>220b900ddb1d69106a03dad1f39619b7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-02-26 19:56:13</sys_updated_on>
+            <value>poc</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Minimum Viable Product</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-02-26 19:57:32</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>060b900ddb1d69106a03dad1f3961953</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-02-26 19:57:41</sys_updated_on>
+            <value>mvp</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>quality</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Robust Product</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-02-26 19:58:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fd7b180ddb1d69106a03dad1f39619bd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-02-26 19:58:13</sys_updated_on>
+            <value>robust</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

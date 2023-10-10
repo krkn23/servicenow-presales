@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_pre_sales.AppInstall</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>This script installs PreSales.</description>
+        <name>AppInstall</name>
+        <script><![CDATA[function AppInstall()
+{
+
+	var installer = new x_snc_devtools.InstallerAPI(x_snc_devtools.GetAppName('x_snc_pre_sales'));
+	
+	installer.RecordInsertOrUpdate(
+		'Presales Engagement Priority Choice: High',
+		'sys_choice',
+		{
+			name: 'x_snc_pre_sales_engagement',
+			element: 'priority',
+			language: 'en',
+			value: "1",
+			label: 'High',
+			sequence: 1
+		},
+		{},
+		{});
+	
+	installer.RecordInsertOrUpdate(
+		'Presales Engagement Priority Choice: Medium',
+		'sys_choice',
+		{
+			name: 'x_snc_pre_sales_engagement',
+			element: 'priority',
+			language: 'en',
+			value: "2",
+			label: 'Medium',
+			sequence: 2
+		},
+		{},
+		{});	
+
+	installer.RecordInsertOrUpdate(
+		'Presales Engagement Priority Choice: Low',
+		'sys_choice',
+		{
+			name: 'x_snc_pre_sales_engagement',
+			element: 'priority',
+			language: 'en',
+			value: "3",
+			label: 'Low',
+			sequence: 3
+		},
+		{},
+		{});	
+	
+	
+	return installer.Finish();
+}
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-29 08:44:28</sys_created_on>
+        <sys_id>83db6b001b2b51105b76777d8b4bcbb7</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>AppInstall</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_update_name>sys_script_include_83db6b001b2b51105b76777d8b4bcbb7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-16 17:23:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

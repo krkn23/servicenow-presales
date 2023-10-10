@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_pre_sales.Estimate</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Processes the input from the questionnaire and returns a list of tasks with efforts and the confidence score.</description>
+        <name>Estimate</name>
+        <script><![CDATA[function Estimate(input)
+{
+	var GetValue = x_snc_devtools.GetValue;
+	var SetValue = x_snc_devtools.SetValue;
+	var GetFloatValue = x_snc_devtools.GetFloatValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var IsArray = x_snc_devtools.IsArray;
+	var IsObject = x_snc_devtools.IsObject;
+	var Clone = x_snc_devtools.Clone;
+	var StringReplace = x_snc_devtools.StringReplace;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var ArrayValueExists = x_snc_devtools.ArrayValueExists;
+	var ArrayAppend = x_snc_devtools.ArrayAppend;
+	var StringFormat = x_snc_devtools.StringFormat;
+
+
+	var rules = GetEstimationRules();
+
+	var estimate = {};
+	var aTasks = [];
+
+	estimate.rules = rules;
+
+	// Assumptions
+	var aAssumptions = [];
+	
+	// Add specific assumptions
+	var strAssumptions = GetStringValue(GetValue(input,'assumptions'));
+	var aSpecificAssumptions = GetArrayValue(strAssumptions.split('\n'));	
+	for (var nAssumption = 0; nAssumption < aSpecificAssumptions.length; nAssumption++)
+	{
+		var strAssumption = aSpecificAssumptions[nAssumption];
+		if (strAssumption != '')	
+		{
+			aAssumptions.push(strAssumption);
+		}
+	}
+	
+	// Open Questions
+	var strOpenQuestions = GetStringValue(GetValue(input,'open_questions'));
+	var aOpenQuestionsInput = GetArrayValue(strOpenQuestions.split('\n'));
+	var aOpenQuestions = [];
+	for (var nOQ = 0; nOQ < aOpenQuestionsInput.length; nOQ++)
+	{
+		var strOpenQuestion = GetStringValue(aOpenQuestionsInput[nOQ]);
+		if (strOpenQuestion != '')
+		{
+			aOpenQuestions.push(strOpenQuestion);
+		}
+	}
+
+	
+	var aKeys = GetKeys(GetValue(rules,'inputs'));
+	for (var nKey = 0; nKey < aKeys.length; nKey++)
+	{
+		var strKey = aKeys[nKey];
+		var bList = strKey.endsWith('_list');
+		var strInput = GetStringValue(GetValue(input,strKey));
+		estimate = SetValue(strInput,estimate,'input',strKey);
+		if (strInput == '' && bList == false)
+		{
+			strInput = 'default';
+		}
+		var rule = GetValue(rules,'inputs',strKey);
+		
+		if (bList == true)
+		{
+			if (strInput == '')
+			{
+				var aInputOpenQuestions = GetArrayValue(GetValue(rule,'open_questions_if_empty'));
+				aOpenQuestions = ArrayAppend(aOpenQuestions,aInputOpenQuestions);
+			}
+		}
+		
+		var task_per_line = GetValue(rule,'task_per_line');
+		if (IsObject(task_per_line))
+		{
+			var bCondition = true;
+			var conditions = GetValue(rule,'condition');
+			var aConditionKeys = GetKeys(conditions);
+			for (var nConditionInput = 0; nConditionInput < aConditionKeys.length; nConditionInput++)
+			{
+				var strConditionInput = aConditionKeys[nConditionInput];
+				var aConditionValues = GetArrayValue(GetValue(rule,'condition',strConditionInput));
+				if (ArrayValueExists(aConditionValues,GetStringValue(GetValue(input,strConditionInput))) == false)
+				{
+					bCondition = false;
+				}
+			}
+			if (bCondition == true)
+			{
+				strInput = StringReplace(strInput,'\n',',');
+				var aLines = GetArrayValue(strInput);
+				for (var nLine = 0; nLine < aLines.length; nLine++)
+				{
+					var strLine = aLines[nLine];
+					strLine = strLine.trim();
+					if (strLine != '')
+					{
+						var newtask = Clone(task_per_line);
+						newtask.short_description = StringFormat(newtask.short_description,strLine);
+						aTasks.push(newtask);
+					}
+				}
+			}
+			
+		}
+		else
+		{
+			var values = GetValue(rule,strInput);
+			var fConfidence = GetValue(values,'confidence');
+			if (fConfidence !== null)
+			{
+				estimate = SetValue(fConfidence,estimate,'confidence',strKey);
+
+			}
+			var fEffortFactor = GetValue(values,'effort_factor');
+			if (fEffortFactor != null)
+			{
+				estimate = SetValue(fEffortFactor,estimate,'effort_factors',strKey);
+			}	
+			var aInputTasks = GetValue(values,'tasks');
+			if (IsArray(aInputTasks) == true)
+			{
+				for (var nTask = 0; nTask < aInputTasks.length; nTask++)
+				{
+					var task = aInputTasks[nTask];
+					aTasks.push(task);
+				}
+			}
+			var aInputAssumptions = GetArrayValue(GetValue(values,'assumptions'));
+			aAssumptions = ArrayAppend(aAssumptions,aInputAssumptions);
+			
+			var aInputOpenQuestions = GetArrayValue(GetValue(values,'open_questions'));
+			aOpenQuestions = ArrayAppend(aOpenQuestions,aInputOpenQuestions);	
+		}
+		
+	}
+	
+
+	// Calculate confidence score
+	var fConfidence = 0; 
+	var confidence = GetValue(estimate,'confidence');
+	var aConfidenceKeys = GetKeys(confidence);
+	for (var nKey = 0; nKey < aConfidenceKeys.length; nKey++)
+	{
+		fConfidence += GetFloatValue(GetValue(confidence,aConfidenceKeys[nKey]));
+	}
+	if (nKey > 0)
+	{
+		fConfidence = fConfidence / nKey; 
+	}
+	SetValue(fConfidence,estimate,'factors','confidence');
+
+	// Calculate effort factor
+	var fEffortFactor = 1; 
+	var effort = GetValue(estimate,'effort_factors');
+	var aEffortKeys = GetKeys(effort);
+	for (var nKey = 0; nKey < aEffortKeys.length; nKey++)
+	{
+		fEffortFactor *= GetFloatValue(GetValue(effort,aEffortKeys[nKey]));
+	}
+	SetValue(fEffortFactor,estimate,'factors','effort');
+	
+	var fTotalEffort = 0;
+	// Calculate tasks based on base effort	
+	for (var nTask = 0; nTask < aTasks.length; nTask++)
+	{
+		var task = aTasks[nTask];
+		var fEffort = GetFloatValue(GetValue(task,'base_effort'));
+		if (fEffort > 0)
+		{
+			fEffort *= fEffortFactor;
+			fEffort = Math.round(fEffort);
+			fEffort = Math.max(fEffort,1);
+			fTotalEffort += fEffort;
+			task['effort'] = fEffort;
+			aTasks[nTask] = task;
+		}
+	}
+	var fTotalEffort2 = fTotalEffort;
+	// Calculate tasks based on effort factor	
+	for (var nTask = 0; nTask < aTasks.length; nTask++)
+	{
+		var task = aTasks[nTask];
+		var fEffortFactor = GetFloatValue(GetValue(task,'effort_factor'));
+		if (fEffortFactor > 0)
+		{
+			var fEffort = fTotalEffort * fEffortFactor;
+			fEffort = Math.round(fEffort);
+			fEffort = Math.max(fEffort,1);
+			fTotalEffort2 += fEffort;
+			task['effort'] = fEffort;
+			aTasks[nTask] = task;
+		}
+	}
+	fTotalEffort = fTotalEffort2;
+	
+	estimate.tasks = aTasks;
+	
+	// Calculate Totals
+	estimate = SetValue(fTotalEffort,estimate,'totals','effort');
+	
+	var fDeviation = fTotalEffort * (1-(fConfidence*0.9)) / 2;
+	fDeviation = Math.round(fDeviation);
+	estimate = SetValue(fDeviation,estimate,'totals','effort_deviation');
+	
+	estimate = SetValue(fTotalEffort - (fDeviation/2),estimate,'totals','effort_lower');
+	estimate = SetValue(fTotalEffort + fDeviation,estimate,'totals','effort_upper');
+	
+	
+	// Add general assumptions
+	var aGeneralAssumptions = GetArrayValue(GetValue(rules,'assumptions'));
+	for (var nAssumption = 0; nAssumption < aGeneralAssumptions.length; nAssumption++)
+	{
+		var strAssumption = aGeneralAssumptions[nAssumption];
+		aAssumptions.push(strAssumption);
+	}
+	
+	estimate = SetValue(aAssumptions,estimate,'assumptions');
+	
+	// Out of Scope
+	var strOutOfScope = GetStringValue(GetValue(input,'out_of_scope'));
+	var aOutOfScope = GetArrayValue(strOutOfScope.split('\n'));
+	var aOutOfScopeResult = [];
+	for (var nOOS = 0; nOOS < aOutOfScope.length; nOOS++)
+	{
+		var strOutOfScope = GetStringValue(aOutOfScope[nOOS]);
+		if (strOutOfScope != '')
+		{
+			aOutOfScopeResult.push(strOutOfScope);
+		}
+	}
+	estimate = SetValue(aOutOfScopeResult,estimate,'out_of_scope');
+	
+	// Open Questions
+	estimate = SetValue(aOpenQuestions,estimate,'open_questions');	
+	
+	
+	return estimate;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-02 19:58:35</sys_created_on>
+        <sys_id>6f8d30dadbdde1106a03dad1f3961956</sys_id>
+        <sys_mod_count>66</sys_mod_count>
+        <sys_name>Estimate</sys_name>
+        <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+        <sys_update_name>sys_script_include_6f8d30dadbdde1106a03dad1f3961956</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-20 10:16:46</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="existing_data_segregation" table="x_snc_pre_sales_engagement" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>existing_data_segregation</element>
+            <name>x_snc_pre_sales_engagement</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:16:56</sys_created_on>
+            <sys_id>d3630b8edbf121106a03dad1f3961946</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>existing_data_segregation</sys_name>
+            <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+            <sys_update_name>sys_choice_x_snc_pre_sales_engagement_existing_data_segregation</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:16:56</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>existing_data_segregation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>None</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:16:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3a530b8edbf121106a03dad1f39619be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:16:55</sys_updated_on>
+            <value>none</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>existing_data_segregation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Doman Separation (without Process Separation)</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:17:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fa834b8edbf121106a03dad1f3961981</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:17:27</sys_updated_on>
+            <value>domain_separation</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>existing_data_segregation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Doman Separation (WITH Process Separation)</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:17:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5a93cb8edbf121106a03dad1f3961937</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:17:41</sys_updated_on>
+            <value>domain_separation_process</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>existing_data_segregation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Custom Solution</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:17:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>aaa3cb8edbf121106a03dad1f396199b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:17:58</sys_updated_on>
+            <value>custom</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>existing_data_segregation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>DataSilos</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>5</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:18:11</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>21b30f8edbf121106a03dad1f39619c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:18:11</sys_updated_on>
+            <value>datasilos</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>existing_data_segregation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Hybrid</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>6</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-03-27 07:18:22</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d8c34f8edbf121106a03dad1f39619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-03-27 07:18:22</sys_updated_on>
+            <value>hybrid</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>
