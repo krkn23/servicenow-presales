@@ -62,6 +62,14 @@
             </choice>
         </element>
         <element label="Languages List" max_length="2000" name="languages_list" type="string"/>
+        <element choice="1" label="Now Mobile" max_length="40" name="mobile" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes, introducing the Mobile App" sequence="2" value="yes_new"/>
+                <element inactive_on_update="false" label="Yes, modification of existing mobile app features" sequence="3" value="yes_existing"/>
+            </choice>
+        </element>
+        <element label="Now Mobile Capabilities List" mandatory="true" max_length="4000" name="mobile_capabilities_list" type="string"/>
         <element label="Notes" max_length="2000" name="notes" type="string"/>
         <element choice="1" label="One-time Data Imports" max_length="40" name="one_time_data_imports" type="choice">
             <choice>
