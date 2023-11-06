@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="web_accessibility_requirements" table="x_snc_pre_sales_engagement" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>web_accessibility_requirements</element>
+            <name>x_snc_pre_sales_engagement</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-11-06 13:30:38</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>web_accessibility_requirements</sys_name>
+            <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+            <sys_update_name>sys_choice_x_snc_pre_sales_engagement_web_accessibility_requirements</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-11-06 13:30:38</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>web_accessibility_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>None - ServiceNow OOTB capabilities are sufficient</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-11-06 13:30:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-11-06 13:30:38</sys_updated_on>
+            <value>no</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>web_accessibility_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>WCAG A</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-11-06 13:31:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-11-06 13:31:13</sys_updated_on>
+            <value>wcag_a</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>web_accessibility_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>WCAG AA</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-11-06 13:31:21</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-11-06 13:31:21</sys_updated_on>
+            <value>wcag_aa</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>web_accessibility_requirements</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>WCAG AAA</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-11-06 13:31:28</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-11-06 13:31:28</sys_updated_on>
+            <value>wcag_aaa</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>
