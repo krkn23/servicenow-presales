@@ -126,5 +126,13 @@
             </choice>
         </element>
         <element label="UI Builder Pages List" mandatory="true" max_length="4000" name="ui_builder_pages_list" type="string"/>
+        <element choice="1" label="Web Accessibility Requirements" max_length="40" name="web_accessibility_requirements" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="None - ServiceNow OOTB capabilities are sufficient" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="WCAG A" sequence="2" value="wcag_a"/>
+                <element inactive_on_update="false" label="WCAG AA" sequence="3" value="wcag_aa"/>
+                <element inactive_on_update="false" label="WCAG AAA" sequence="4" value="wcag_aaa"/>
+            </choice>
+        </element>
     </element>
 </database>
