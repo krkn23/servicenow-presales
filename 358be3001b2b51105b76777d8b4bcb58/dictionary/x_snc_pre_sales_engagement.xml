@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="6cd775b21b312550cd6153d16b4bcbd9" extends="task" label="PreSales Engagement" max_length="40" name="x_snc_pre_sales_engagement" type="collection">
+        <element label="Additional Tasks List" max_length="4000" name="additional_tasks_list" type="string"/>
         <element label="Assumptions" max_length="4000" name="assumptions" type="string"/>
         <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
         <element label="Business Processes List" max_length="4000" name="business_processes_list" type="string"/>
