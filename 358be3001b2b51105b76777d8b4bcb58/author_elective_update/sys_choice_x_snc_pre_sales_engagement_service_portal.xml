@@ -6,12 +6,11 @@
             <sys_class_name>sys_choice_set</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2023-03-21 13:23:11</sys_created_on>
-            <sys_id>7dbd9514dbb529506a03dad1f3961977</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>service_portal</sys_name>
-            <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+            <sys_package display_value="PreSales" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
             <sys_policy/>
-            <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+            <sys_scope display_value="PreSales">358be3001b2b51105b76777d8b4bcb58</sys_scope>
             <sys_update_name>sys_choice_x_snc_pre_sales_engagement_service_portal</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2023-03-21 13:23:11</sys_updated_on>
@@ -30,7 +29,6 @@
             <sys_created_on>2023-03-21 13:23:11</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>41add514dbb529506a03dad1f39619fd</sys_id>
             <sys_mod_count>2</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2023-03-26 15:37:10</sys_updated_on>
@@ -50,7 +48,6 @@
             <sys_created_on>2023-03-21 13:24:06</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>17bd1914dbb529506a03dad1f3961942</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2023-03-21 13:24:06</sys_updated_on>
@@ -70,7 +67,6 @@
             <sys_created_on>2023-03-21 13:24:59</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>080e1d14dbb529506a03dad1f39619c3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2023-03-21 13:24:59</sys_updated_on>
