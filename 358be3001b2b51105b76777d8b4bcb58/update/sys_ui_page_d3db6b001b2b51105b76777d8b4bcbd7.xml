@@ -80,7 +80,7 @@
 	
 	<h2>Release Notes</h2>
 
-	<h3>1.4.0 - TODO</h3>
+	<h3>1.4.0 - 2025-03-11</h3>
 	<ol>
 		<li>Vancouver is no longer actively supported.</li>
 		<li>PreSales is fully tested with Xanadu.</li>
@@ -121,13 +121,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-29 08:44:29</sys_created_on>
         <sys_id>d3db6b001b2b51105b76777d8b4bcbd7</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy/>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_ui_page_d3db6b001b2b51105b76777d8b4bcbd7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-03-11 15:59:26</sys_updated_on>
+        <sys_updated_on>2025-03-11 17:01:08</sys_updated_on>
     </sys_ui_page>
 </record_update>
