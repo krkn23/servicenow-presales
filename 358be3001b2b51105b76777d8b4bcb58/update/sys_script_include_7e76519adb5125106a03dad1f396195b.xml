@@ -645,9 +645,26 @@
 				{
 					base_effort: 3,
 					type: 'implementation',
-					short_description: 'Implement UI Builder Experience Feature "{0}"'
+					short_description: 'Implement UI Builder Experience Page "{0}"'
 				}
-			},							
+			},	
+			ui_builder_components_list:
+			{
+				condition:
+				{
+					ui_builder: ['yes_new','yes_existing']
+				},				
+				task_per_line:
+				{
+					base_effort: 10,
+					type: 'implementation',
+					short_description: 'Implement UI Builder Custom Component "{0}"',
+					assumptions:
+					[
+						'The development of custom UI Builder Components requires a specific development environment setup (outside of the ServiceNow platform).'
+					]	
+				}
+			},										
 			mobile:
 			{
 				yes_new:
@@ -875,13 +892,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>88</sys_mod_count>
+        <sys_mod_count>91</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-03-11 09:40:40</sys_updated_on>
+        <sys_updated_on>2025-03-11 14:17:47</sys_updated_on>
     </sys_script_include>
 </record_update>

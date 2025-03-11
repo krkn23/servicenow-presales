@@ -77,6 +77,7 @@
 		<li>PreSales is fully tested with Xanadu.</li>
 		<li>DevTools 1.116.0 is now required due to the delimiter parameter in GetArrayValue().</li>
 		<li>In "List" fields commas were misinterpreted as delimiters. This has been fixed.</li>
+		<li>A new list of UI Builder (Custom) Components is added.</li>
 		<li>Improved questionnaire form layout.</li>
 		<li>Added UI Action chapter in manual.</li>
 	</ol>
@@ -110,13 +111,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-29 08:44:29</sys_created_on>
         <sys_id>d3db6b001b2b51105b76777d8b4bcbd7</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy/>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_ui_page_d3db6b001b2b51105b76777d8b4bcbd7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-03-11 14:01:19</sys_updated_on>
+        <sys_updated_on>2025-03-11 14:12:44</sys_updated_on>
     </sys_ui_page>
 </record_update>
