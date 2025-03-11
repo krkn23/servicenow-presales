@@ -69,6 +69,7 @@
                 <element inactive_on_update="false" label="Minimum Viable Product" sequence="3" value="mvp"/>
             </choice>
         </element>
+        <element label="UI Builder Components List" max_length="4000" name="ui_builder_components_list" type="string"/>
         <element label="Company Name" mandatory="true" max_length="200" name="company_name" type="string"/>
         <element label="Additional Tasks List" max_length="4000" name="additional_tasks_list" type="string"/>
         <element choice="1" label="Context" max_length="40" name="context" type="choice">
