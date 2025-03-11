@@ -3,6 +3,8 @@
         <cleared>false</cleared>
         <disabled>ignore</disabled>
         <field>catalog_items_list</field>
+        <field_message/>
+        <field_message_type/>
         <mandatory>true</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -18,6 +20,9 @@
         <sys_updated_on>2023-03-27 09:19:01</sys_updated_on>
         <table>x_snc_pre_sales_engagement</table>
         <ui_policy display_value="Service Catalog">da3d6fb5db7121906a03dad1f3961905</ui_policy>
+        <value/>
+        <value_action/>
         <visible>true</visible>
     </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=125defb5db7121906a03dad1f39619f2"/>
 </record_update>

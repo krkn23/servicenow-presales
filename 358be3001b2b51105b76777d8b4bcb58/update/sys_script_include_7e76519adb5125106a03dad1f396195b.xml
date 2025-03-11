@@ -645,9 +645,26 @@
 				{
 					base_effort: 3,
 					type: 'implementation',
-					short_description: 'Implement UI Builder Experience Feature "{0}"'
+					short_description: 'Implement UI Builder Experience Page "{0}"'
 				}
-			},							
+			},	
+			ui_builder_components_list:
+			{
+				condition:
+				{
+					ui_builder: ['yes_new','yes_existing']
+				},				
+				task_per_line:
+				{
+					base_effort: 10,
+					type: 'implementation',
+					short_description: 'Implement UI Builder Custom Component "{0}"',
+					assumptions:
+					[
+						'The development of custom UI Builder Components requires a specific development environment setup (outside of the ServiceNow platform).'
+					]	
+				}
+			},										
 			mobile:
 			{
 				yes_new:
@@ -711,7 +728,7 @@
 				{
 					base_effort: 2,
 					type: 'implementation',
-					short_description: 'Implement mobile capability "{0}"'
+					short_description: 'Implement Mobile Capability "{0}"'
 				}
 			},							
 			integrations_inbound:
@@ -720,7 +737,7 @@
 				{
 					assumptions:
 					[
-						'Inbound integrations store ingested data into staging tables which is then merged with data on actual tables where this data is used. This allows for automated testing and is the foundation for a robust process.'
+						'Inbound integrations store ingested data into staging tables. Imported data is then merged with data on actual tables. This allows for automated testing and is the foundation for a robust process.'
 					]
 				},
 				no: {},
@@ -875,13 +892,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>86</sys_mod_count>
+        <sys_mod_count>92</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
-        <sys_policy>read</sys_policy>
+        <sys_policy/>
         <sys_scope display_value="PreSales">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-07-02 14:15:09</sys_updated_on>
+        <sys_updated_on>2025-03-11 18:31:32</sys_updated_on>
     </sys_script_include>
 </record_update>

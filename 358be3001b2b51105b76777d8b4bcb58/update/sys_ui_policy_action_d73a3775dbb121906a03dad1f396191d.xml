@@ -3,6 +3,8 @@
         <cleared>false</cleared>
         <disabled>ignore</disabled>
         <field>ui_builder_pages_list</field>
+        <field_message/>
+        <field_message_type/>
         <mandatory>true</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -18,6 +20,9 @@
         <sys_updated_on>2023-03-27 09:21:31</sys_updated_on>
         <table>x_snc_pre_sales_engagement</table>
         <ui_policy display_value="UI Builder">9e2ab375dbb121906a03dad1f396196c</ui_policy>
+        <value/>
+        <value_action/>
         <visible>true</visible>
     </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=d73a3775dbb121906a03dad1f396191d"/>
 </record_update>
