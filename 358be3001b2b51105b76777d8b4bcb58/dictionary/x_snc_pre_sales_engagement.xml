@@ -48,7 +48,7 @@
                 <element inactive_on_update="false" label="No" sequence="1" value="no"/>
             </choice>
         </element>
-        <element choice="1" label="Deployment method" max_length="40" name="deployment_method" type="choice">
+        <element choice="1" label="Deployment Method" max_length="40" name="deployment_method" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Update Sets" sequence="1" value="update_sets"/>
                 <element inactive_on_update="false" label="Source Control / AppRepo" sequence="2" value="source_control"/>
