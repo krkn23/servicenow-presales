@@ -3,6 +3,8 @@
         <cleared>false</cleared>
         <disabled>ignore</disabled>
         <field>service_portal_features_list</field>
+        <field_message/>
+        <field_message_type/>
         <mandatory>true</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -18,6 +20,9 @@
         <sys_updated_on>2023-03-27 09:22:12</sys_updated_on>
         <table>x_snc_pre_sales_engagement</table>
         <ui_policy display_value="Service Portal">7cfe5d54dbb529506a03dad1f396190f</ui_policy>
+        <value/>
+        <value_action/>
         <visible>true</visible>
     </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=d72f5194dbb529506a03dad1f3961941"/>
 </record_update>
