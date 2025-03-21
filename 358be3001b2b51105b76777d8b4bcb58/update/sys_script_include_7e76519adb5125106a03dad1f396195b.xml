@@ -235,6 +235,44 @@
 					confidence: 0
 				}
 			},
+			open_source_policy:
+			{
+				allow:
+				{
+					assumptions:
+					[
+						'Open Source contributions can be made part of the implementation of the product.'
+					],
+					confidence: 1,
+					effort_factor: 1 
+				},
+				deny:
+				{
+					assumptions:
+					[
+						'Open source contributions MUST NOT be made part of the product. This may cause additional efforts as in some cases, well tested and stable available solutions cannot be used and hence have to be re-implemented. These additional efforts have been considered in the estimate.'
+					],
+					confidence: 0.75,
+					effort_factor: 1.25
+				},
+				exception:
+				{
+					assumptions:
+					[
+						'Open Source contributions MAY be used for the implementation of the product. The decision will be made on a case-by-case basis by the customer after applying a rigorous review process. This creates some uncertainty in planning the project. A factor is applied to the estimate to consider this uncertainty.'
+					],					
+					confidence: 0.5,
+					effort_factor: 1.5
+				},
+				'default':
+				{
+					open_questions:
+					[
+						'Can Open Source contributions be made part of the product?'
+					],						
+					confidence: 0
+				}
+			},
 			existing_data_segregation:
 			{
 				no:
@@ -317,7 +355,7 @@
 						{
 							type: 'analysis',
 							base_effort: 5,
-							short_description: 'Analysis of existing hybrid data segregation implementation'						
+							short_description: 'Analysis of existing hybrid data segregation implementation'
 						}
 					]					
 				},
@@ -343,7 +381,7 @@
 				{
 					assumptions:
 					[
-						'Data segregation is a requirement. This causes additional effort no matter which solution is implemented.'
+						'Data segregation is a requirement. The effort estimates consider the required effort for analysis, implementation and test.'
 					],
 					confidence: 0.5,
 					effort_factor: 1.2,
@@ -892,13 +930,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-02 21:30:21</sys_created_on>
         <sys_id>7e76519adb5125106a03dad1f396195b</sys_id>
-        <sys_mod_count>92</sys_mod_count>
+        <sys_mod_count>94</sys_mod_count>
         <sys_name>GetEstimationRules</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy/>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_7e76519adb5125106a03dad1f396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-03-11 18:31:32</sys_updated_on>
+        <sys_updated_on>2025-03-21 12:16:25</sys_updated_on>
     </sys_script_include>
 </record_update>

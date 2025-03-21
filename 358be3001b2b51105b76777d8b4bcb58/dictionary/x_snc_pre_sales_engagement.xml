@@ -32,6 +32,13 @@
             </choice>
         </element>
         <element label="Business Capabilities List" max_length="4000" name="business_capabilities_list" type="string"/>
+        <element choice="1" label="Open Source Policy" max_length="40" name="open_source_policy" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Open Source contributions CAN NOT be used in the project" sequence="2" value="deny"/>
+                <element inactive_on_update="false" label="Open Source contributions may be used in the project after passing a rigorous review process" sequence="3" value="exception"/>
+                <element inactive_on_update="false" label="Open Source contributions can be used in the project" sequence="1" value="allow"/>
+            </choice>
+        </element>
         <element choice="1" label="Existing Data Segregation" max_length="40" name="existing_data_segregation" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Custom Solution" sequence="4" value="custom"/>
