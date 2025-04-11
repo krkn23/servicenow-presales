@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Renders the estimate page.</description>
+        <mobile_callable>false</mobile_callable>
         <name>HtmlRenderPageEstimate</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[function HtmlRenderPageEstimate()
 {
 	var GetParam = x_snc_devtools.GetParam;
@@ -48,7 +50,7 @@
 	
 	function RenderPersonDays(nPDs)
 	{
-		return GetIntegerValue(nPDs) + ' PDs';
+		return GetIntegerValue(nPDs) /*+ ' PDs'*/;
 	}
 	
 	function RenderScore(fValue)
@@ -101,7 +103,7 @@
 	var aHeaderRow = [];
 	aHeaderRow.push({ header: true, content: '#'} );
 	aHeaderRow.push({ header: true, content: 'Task'} );
-	aHeaderRow.push({ header: true, content: 'Effort'} );
+	aHeaderRow.push({ header: true, content: 'Effort (PDs)'} );
 	//aHeaderRow.push({ header: true, content: 'Role'} );
 	
 	aTaskTable.push(aHeaderRow);	
@@ -183,13 +185,24 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-02-26 20:06:17</sys_created_on>
         <sys_id>5f3d54cddb1d69106a03dad1f39619c0</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_name>HtmlRenderPageEstimate</sys_name>
         <sys_package display_value="PreSales WORK IN PROGRESS" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy/>
         <sys_scope display_value="PreSales WORK IN PROGRESS">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_script_include_5f3d54cddb1d69106a03dad1f39619c0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-03-11 18:31:31</sys_updated_on>
+        <sys_updated_on>2025-04-11 10:58:35</sys_updated_on>
     </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>5f3d54cddb1d69106a03dad1f39619c0</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-11 10:58:34</sys_created_on>
+        <sys_id>2b28615a93746e10959b7fda2bba1093</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-11 10:58:34</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

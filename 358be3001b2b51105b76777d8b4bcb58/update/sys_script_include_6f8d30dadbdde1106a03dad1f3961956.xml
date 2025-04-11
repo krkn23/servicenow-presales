@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Processes the input from the questionnaire and returns a list of tasks with efforts and the confidence score.</description>
+        <mobile_callable>false</mobile_callable>
         <name>Estimate</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[function Estimate(input)
 {
 	var GetValue = x_snc_devtools.GetValue;

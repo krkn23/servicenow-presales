@@ -3,7 +3,9 @@
         <active>true</active>
         <admin_overrides>true</admin_overrides>
         <advanced>false</advanced>
+        <applies_to/>
         <condition/>
+        <decision_type>allow</decision_type>
         <description>Allow read for records in core_country, for users with role x_snc_pre_sales.viewer.</description>
         <local_or_existing/>
         <name>core_country</name>
