@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Proposes a team setup based on a given estimate.</description>
+        <mobile_callable>false</mobile_callable>
         <name>TeamSetup</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[function TeamSetup(estimate, nDurationMonths)
 {
 	var GetValue = x_snc_devtools.GetValue;

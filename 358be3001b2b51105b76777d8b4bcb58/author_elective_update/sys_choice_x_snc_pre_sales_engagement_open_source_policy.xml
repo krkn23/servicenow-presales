@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="open_source_policy" table="x_snc_pre_sales_engagement" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>open_source_policy</element>
+            <name>x_snc_pre_sales_engagement</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-03-21 12:03:27</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>open_source_policy</sys_name>
+            <sys_package display_value="PreSales" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PreSales">358be3001b2b51105b76777d8b4bcb58</sys_scope>
+            <sys_update_name>sys_choice_x_snc_pre_sales_engagement_open_source_policy</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-03-21 12:03:27</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>open_source_policy</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Open Source contributions can be used in the project</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-03-21 12:03:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-03-21 12:03:27</sys_updated_on>
+            <value>allow</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>open_source_policy</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Open Source contributions CAN NOT be used in the project</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-03-21 12:03:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-03-21 12:03:57</sys_updated_on>
+            <value>deny</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>open_source_policy</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Open Source contributions may be used in the project after passing a rigorous review process</label>
+            <language>en</language>
+            <name>x_snc_pre_sales_engagement</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-03-21 12:05:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-03-21 12:05:29</sys_updated_on>
+            <value>exception</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>
