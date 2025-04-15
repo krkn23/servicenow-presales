@@ -80,6 +80,13 @@
 	
 	<h2>Release Notes</h2>
 
+	<h3>1.6.0 - 2025-04-15</h3>
+	<ol>
+		<li>Documents attached to the engagement record are now listed in the estimate output for reference.</li>
+		<li>Replaced use of GetInstanceListURL() by GetInstanceListUrl() to avoid using a deprecated function.</li>
+	</ol>
+
+
 	<h3>1.5.0 - 2025-04-11</h3>
 	<ol>
 		<li>DevTools 1.118.0 is now required due Yokohama support.</li>
@@ -132,14 +139,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-29 08:44:29</sys_created_on>
         <sys_id>d3db6b001b2b51105b76777d8b4bcbd7</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>34</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="PreSales" source="x_snc_pre_sales">358be3001b2b51105b76777d8b4bcb58</sys_package>
         <sys_policy/>
         <sys_scope display_value="PreSales">358be3001b2b51105b76777d8b4bcb58</sys_scope>
         <sys_update_name>sys_ui_page_d3db6b001b2b51105b76777d8b4bcbd7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-04-11 11:07:26</sys_updated_on>
+        <sys_updated_on>2025-04-15 08:16:04</sys_updated_on>
     </sys_ui_page>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>d3db6b001b2b51105b76777d8b4bcbd7</id>
